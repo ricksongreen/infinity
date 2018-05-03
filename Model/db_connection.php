@@ -7,7 +7,7 @@
  */
 
 try {
-    $dbh = new PDO('mysql:host=https://t08-er-1718.clow.nl;dbname=t08er1718_t08',
+    $dbh = new PDO('mysql:host=t08-er-1718.clow.nl/;dbname=t08er1718_t08',
         't08er1718_t08',
         'infinity',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -16,5 +16,6 @@ try {
     die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
 }
 
-$message = $dbh->query("Select * FROM gebruiker");
-print_r($message);
+
+//$message = $dbh->query("Select * FROM gebruiker");
+//print_r($message);

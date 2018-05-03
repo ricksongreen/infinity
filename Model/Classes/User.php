@@ -20,5 +20,24 @@ class User{
     public function Login($user){
         $stmt = $dbh->prepare('SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam = :user');
 
+
+        $values = array (
+            'user' => $user
+        );
+
+        $stmt->execute($values);
+        $realpassword = $stmt->fetch();
+
+        /**@throws exception when username does not exist in the database
+         * @throws exception when password is false, allows user to continue if correct
+         **/
+        if(!isset($realpassword)) {
+            throw new Exception("Gebruiker niet gevonden")
+        }elseif($this->password == $realpassword){
+            return "true";
+        }else{
+            throw new Exception("Wachtwoord is incorrect");
+        }
     }
 }
+

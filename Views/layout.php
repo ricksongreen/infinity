@@ -19,6 +19,6 @@
 <footer>
     <br><br>
     <hr>
-    &copy; 2018 - Infinity
+    &copy; 2018 - Infinity Team 8
 </footer>
 </html>

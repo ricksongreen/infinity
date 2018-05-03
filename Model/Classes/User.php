@@ -32,7 +32,7 @@ class User{
          * @throws exception when password is false, allows user to continue if correct
          **/
         if(!isset($realpassword)) {
-            throw new Exception("Gebruiker niet gevonden")
+            throw new Exception("Gebruiker niet gevonden");
         }elseif($this->password == $realpassword){
             return "true";
         }else{

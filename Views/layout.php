@@ -1,7 +1,24 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Mischa-PC
- * Date: 03/05/2018
- * Time: 12:26
- */
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Infinity</title>
+</head>
+
+<header>
+    <h1><b>Infinity</b></h1>
+</header>
+
+<nav><hr>
+<b> Menu:</b>
+<button>Home</button>
+<button>Login</button>
+<hr></nav>
+<br />
+<?php require(APP_PATH . '/routes.php'); ?>
+
+<footer>
+    <br><br>
+    <hr>
+    &copy; 2018 - Infinity
+</footer>
+</html>

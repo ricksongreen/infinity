@@ -16,7 +16,7 @@
     <h1>
         Login Infinity
     </h1>
-<form method="post" action="homepage.php">
+<form method="post" action="index.php?controller=home&action=loginhandler.php">
     Gebruikersnaam: <input type="text" name="username" required><br><br>
     Wachtwoord: <input type="password" name="password" required><br><br>
     <input type="submit" value="Log in">

@@ -7,7 +7,7 @@
  */
 function call($controller, $action) {
     // require the file that matches the controller name
-    $includeFile = sprintf('%s/controllers.php', APP_PATH, $controller);
+    $includeFile = sprintf('%s/Controller/%s.php', APP_PATH, $controller);
     require_once($includeFile);
 
     // call the function that matches the action name

@@ -12,7 +12,8 @@ session_start();
 define('APP_PATH', 'C:/xampp/infinity');
 
 // create a db connection
-require_once(APP_PATH .'/Model/db-connection.php');
+// require_once(APP_PATH .'/Model/db_connection.php');
 
 // show layout of Infinity
-require_once(APP_PATH .'Views/layout.php');
+require_once(APP_PATH .'/Views/layout.php');
+

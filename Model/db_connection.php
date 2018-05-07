@@ -7,7 +7,7 @@
  */
 
 try {
-    $dbh = new PDO('mysql:host=t08-er-1718.clow.nl/;dbname=t08er1718_t08',
+    $dbh = new PDO('mysql:host=localhost;dbname=t08er1718_t08',
         't08er1718_t08',
         'infinity',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

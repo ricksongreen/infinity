@@ -10,6 +10,12 @@ class User{
     private $username;
     private $password;
 
+    public function __construct($user, $pass) {
+        if(empty($this->password)) {
+            $this->password = password_hash($pw, PASSWORD_DEFAULT);
+        }
+        $this->username = $user;
+    }
 
     public function PasswordHash($pw){
         if(empty($this->password)) {
@@ -17,12 +23,11 @@ class User{
         }
     }
 
-    public function Login($user){
+    public function Login(){
         $stmt = $dbh->prepare('SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam = :user');
 
-
         $values = array (
-            'user' => $user
+            'user' => $this->username
         );
 
         $stmt->execute($values);
@@ -38,6 +43,18 @@ class User{
         }else{
             throw new Exception("Wachtwoord is incorrect");
         }
+    }
+
+    public function GetName(){
+        $stmt = $dbh->prepare('SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam = :user');
+
+        $values = array (
+            'user' => $this->username
+        );
+
+        $stmt->execute($values);
+        $name = $stmt->fetch();
+
     }
 }
 

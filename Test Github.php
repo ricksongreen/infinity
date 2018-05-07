@@ -9,6 +9,6 @@
 
 <?php
 
-echo "mogool" ;
+echo "bavlly is gay" ;
 
 ?>

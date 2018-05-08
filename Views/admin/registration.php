@@ -12,12 +12,12 @@
 </head>
 <body>
 <h1>Infinity Registratie</h1>
-<form method="post" action=>
-    Student-/Docentnummer: <input type="text" name="number" required><br>
+<form method="post" action="index.php?controller=admin/admin&action=add">
+    Student-/Docentnummer: <input type="text" name="number" ><br>
     <input type="radio" name="functie" value="Docent" checked> Docent<br>
     <input type="radio" name="functie" value="Student"> Student<br>
     <input type="radio" name="functie" value="SLB"> SLB <br>
-    Wachtwoord: <input type="password" name="password" required><br>
+    Wachtwoord: <input type="password" name="wachtwoord" required><br>
     Email: <input type="email" name="email" required><br>
     Voornaam: <input type="text" name="voornaam" required><br>
     Tussenvoegsel: <input type="text" name="tussenvoegsel"><br>

@@ -5,10 +5,10 @@
  * Date: 8-5-2018
  * Time: 12:41
  */
-function addUser($user) {
+function addUser($gebruiker) {
     global $dbh;
 
-    $stmt = $dbh->prepare("INSERT INTO user (first_name, last_name, password, country, email, Admin) VALUES(:first_name, :last_name, :password, :country, :email, :Admin)");
+    $stmt = $dbh->prepare("INSERT INTO gebruiker (voornaam, tussenvoegsel, achternaam, email, gebruikersnaam, wachtwoord) VALUES(:voornaam, :tussenvoegsel, :achternaam, :email, :gebruikersnaam, :wachtwoord)");
 
-    return $stmt->execute($customer);
+    return $stmt->execute($gebruiker);
 }

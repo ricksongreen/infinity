@@ -7,46 +7,41 @@
  */
 
 class User{
-    private $username;
-    private $password;
+    public $username;
 
     public function __construct($user, $pass) {
-        if(empty($this->password)) {
-            $this->password = password_hash($pw, PASSWORD_DEFAULT);
-        }
+        /** Sets the username of the User in the Class */
         $this->username = $user;
-    }
 
-    public function PasswordHash($pw){
-        if(empty($this->password)) {
-            $this->password = password_hash($pw, PASSWORD_DEFAULT);
-        }
-    }
+        global $dbh;
 
-    public function Login(){
-        $stmt = $dbh->prepare('SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam = :user');
-
+        $stmt = $dbh->prepare("SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam=:user");
         $values = array (
             'user' => $this->username
         );
-
         $stmt->execute($values);
         $realpassword = $stmt->fetch();
 
-        /**@throws exception when username does not exist in the database
-         * @throws exception when password is false, allows user to continue if correct
-         **/
-        if(!isset($realpassword)) {
-            throw new Exception("Gebruiker niet gevonden");
-        }elseif($this->password == $realpassword){
-            return "true";
-        }else{
-            throw new Exception("Wachtwoord is incorrect");
+        try{
+            if(!isset($realpassword)){
+                throw new Exception("Gebruiker niet gevonden");
+            }
+            if(password_verify($pass, $realpassword['wachtwoord']) == false){
+                throw new Exception("Het ingevoerde wachtwoord is incorrect");
+            }
+        }catch (Exception $e) {
+            echo "ERROR: ".$e->getMessage();
+            exit;
         }
     }
 
+    public function PasswordHash($pw){
+        return password_hash($pw, PASSWORD_DEFAULT);
+    }
+
     public function GetName(){
-        $stmt = $dbh->prepare('SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam = :user');
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam=:user");
 
         $values = array (
             'user' => $this->username

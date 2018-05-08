@@ -5,18 +5,17 @@
  * Date: 03/05/2018
  * Time: 12:01
  */
-include (APP_PATH. '/Model/Classes/User.php');
+include_once(APP_PATH. '/Model/Classes/User.php');
 //login page
 function loginform() {
     require_once APP_PATH . '/Views/login.php';
 }
 
 function loginhandler() {
-    $hash = getPasswordHash($_POST['email']);
+        $Person = new User($_POST['username'], $_POST['password']);
 
-    if (password_verify($_POST['password'], $hash)) {
-        $_SESSION['admin'] = true;
-        header("Location: /infinity/index.php?controller=rooster&action=showall");
-        exit;
+
+        echo "Welkom $Person->username";
+        //header("Location: /infinity/index.php?controller=rooster&action=showall");
+        //exit;
     }
-}

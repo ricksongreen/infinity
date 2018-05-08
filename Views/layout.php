@@ -12,7 +12,7 @@
 <b> Menu:</b>
 <button>Home</button>
 <button>Login</button>
-<button>admin</button>
+<button>Admin</button>
 <hr></nav>
 <br />
 <?php require(APP_PATH . '/routes.php'); ?>

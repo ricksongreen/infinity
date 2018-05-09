@@ -12,7 +12,7 @@
 <b> Menu:</b>
 <button>Home</button>
 <button>Login</button>
-<button href="admin/index.php?controller=admin/admin&action=addForm">Admin</button>
+<a href="admin/index.php?controller=admin/admin&action=addForm">Admin</a>
 <hr></nav>
 <br />
 <?php require(APP_PATH . '/routes.php'); ?>

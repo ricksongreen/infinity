@@ -12,9 +12,9 @@ class User{
     public function __construct($user, $pass) {
         /** Sets the username of the User in the Class */
         $this->username = $user;
-
+        /** Retrieves info from database */
         global $dbh;
-
+        /** Retrieves password from database */
         $stmt = $dbh->prepare("SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam=:user");
         $values = array (
             'user' => $this->username
@@ -22,11 +22,12 @@ class User{
         $stmt->execute($values);
         $realpassword = $stmt->fetch();
 
+        /** Uses a Try-Catch to be able to throw Exceptions if the User or password are incorrect */
         try{
             if(!isset($realpassword)){
                 throw new Exception("Gebruiker niet gevonden");
             }
-            if(password_verify($pass, $realpassword['wachtwoord']) == false){
+            if(password_verify($pass, $realpassword) == false){
                 throw new Exception("Het ingevoerde wachtwoord is incorrect");
             }
         }catch (Exception $e) {

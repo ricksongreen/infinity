@@ -13,16 +13,17 @@
 <body>
 <h1>Infinity Registratie</h1>
 <form method="post" action="index.php?controller=admin/admin&action=add">
-    Student-/Docentnummer: <input type="text" name="number" ><br>
-    <input type="radio" name="functie" value="Docent" checked> Docent<br>
-    <input type="radio" name="functie" value="Student"> Student<br>
-    <input type="radio" name="functie" value="SLB"> SLB <br>
-    Wachtwoord: <input type="password" name="wachtwoord" required><br>
-    Email: <input type="email" name="email" required><br>
     Voornaam: <input type="text" name="voornaam" required><br>
     Tussenvoegsel: <input type="text" name="tussenvoegsel"><br>
     Achternaam: <input type="text" name="achternaam" required><br>
-    Opleiding: <input type="text" name="opleiding"><br><br>
+    Email: <input type="email" name="email" required><br>
+    Gebruikernaam: <input type="text" name="email" required><br>
+    Wachtwoord: <input type="password" name="wachtwoord" required><br>
+    <!--Student-/Docentnummer: <input type="text" name="number" ><br>
+    Opleiding: <input type="text" name="opleiding">
+    <input type="radio" name="functie" value="docent" checked> Docent<br>
+    <input type="radio" name="functie" value="student"> Student<br>
+   <input type="radio" name="functie" value="SLB"> SLB <br><br><br>--><Br>
     <input type="submit" value="Verstuur">
 </form>
 </body>

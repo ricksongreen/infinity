@@ -19,11 +19,11 @@
     Email: <input type="email" name="email" required><br>
     Gebruikernaam: <input type="text" name="gebruikersnaam" required><br>
     Wachtwoord: <input type="password" name="wachtwoord" required><br>
-    <!--Student-/Docentnummer: <input type="text" name="number" ><br>
+    Student-/Docentnummer: <input type="text" name="number" ><br>
     Opleiding: <input type="text" name="opleiding">
     <input type="radio" name="functie" value="docent" checked> Docent<br>
     <input type="radio" name="functie" value="student"> Student<br>
-   <input type="radio" name="functie" value="SLB"> SLB <br><br><br>--><Br>
+   <input type="radio" name="functie" value="SLB"> SLB <br><br>
     <input type="submit" value="Verstuur">
 </form>
 </body>

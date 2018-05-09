@@ -36,21 +36,57 @@ class User{
         }
     }
 
-    public function PasswordHash($pw){
+    public function passwordHash($pw){
         return password_hash($pw, PASSWORD_DEFAULT);
     }
 
-    public function GetName(){
+    public function getName(){
         global $dbh;
         $stmt = $dbh->prepare("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam=:user");
 
-        $values = array (
+        $values = array(
             'user' => $this->username
         );
 
         $stmt->execute($values);
         $name = $stmt->fetch();
+    }
 
+    public function getID(){
+        global $dbh;
+        $stmt = $dbh->prepare("SELECT ID FROM gebruiker WHERE gebruikersnaam=:gebruikersnaam");
+        $values = array(
+            'gebruikersnaam' => $this->username
+        );
+        $stmt->execute($values);
+        $id = $stmt->fetch();
+        return $id['ID'];
+    }
+
+    public function getRights(){
+        global $dbh;
+        $id = $this->getID();
+        $stmt = $dbh->prepare("SELECT nummer FROM student WHERE ID=:ID");
+        $values = array(
+            'ID' => $id
+        );
+        $stmt->execute($values);
+        $student = $stmt->fetch();
+        $stmt = $dbh->prepare("SELECT studentbegeleider, systeembeheerder FROM werknemer WHERE ID=:ID");
+        $stmt->execute($values);
+        $werknemer = $stmt->fetch();
+
+        if(!empty($student['nummer'])){
+            return 'student';
+        }elseif($werknemer['studentbegeleider'] && $werknemer['systeembeheerder'] == 0){
+            return 'docent';
+        }elseif($werknemer['studentbegeleider'] == 1 && $werknemer['systeembeheerder'] == 0){
+            return 'slb';
+        }elseif($werknemer['studentbegeleider'] == 0 && $werknemer['systeembeheerder'] == 1){
+            return 'admin';
+        }elseif($werknemer['studentbegeleider'] == 1 && $werknemer['systeembeheerder'] == 1){
+            return 'slbadmin';
+        }
     }
 }
 

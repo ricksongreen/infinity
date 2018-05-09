@@ -22,7 +22,8 @@
     Voornaam: <input type="text" name="voornaam" required><br>
     Tussenvoegsel: <input type="text" name="tussenvoegsel"><br>
     Achternaam: <input type="text" name="achternaam" required><br>
-    Opleiding: <input type="text" name="opleiding"><br>
+    Opleiding: <input type="text" name="opleiding"><br><br>
+    <input type="submit" value="Verstuur">
 </form>
 </body>
 </html>

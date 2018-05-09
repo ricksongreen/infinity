@@ -7,8 +7,8 @@
  */
 function addUser($user) {
     global $dbh;
-print_r($user);
+
     $stmt = $dbh->prepare("INSERT INTO gebruiker (voornaam, tussenvoegsel, achternaam, email, gebruikersnaam, wachtwoord) VALUES(:voornaam, :tussenvoegsel, :achternaam, :email, :gebruikersnaam, :wachtwoord)");
 
-    return $stmt->execute($user);
+    $stmt->execute($user);
 }

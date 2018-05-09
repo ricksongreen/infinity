@@ -5,15 +5,16 @@
  * Date: 8-5-2018
  * Time: 08:18
  */
+require_once APP_PATH . '/Model/admin.php';
 function addForm() {
 
-    require_once APP_PATH . '/views/admin/registration.php';
+    require_once APP_PATH . '/Views/admin/registration.php';
 }
 
 function add() {
     $user = $_POST;
 
-    $user['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $user['wachtwoord'] = password_hash($_POST['wachtwoord'], PASSWORD_DEFAULT);
 
     addUser($user);
 

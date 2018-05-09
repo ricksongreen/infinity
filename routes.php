@@ -31,10 +31,9 @@ if (isset($_GET['controller']) && isset($_GET{'action'})) {
 // a list of the controllers we have and their actions we consider "allowed" values
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'addForm'),
+    'admin/admin' => array('addForm', 'add')
 );
-$allowedControllers['admin/admin'] = array (
-    'addForm', 'add'
-);
+
 
 // allow extra controller when user is logged in as admin(systemowner)
 if (isAdmin()) {

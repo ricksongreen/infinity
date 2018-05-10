@@ -12,10 +12,10 @@ function loginform() {
 }
 
 function loginhandler() {
-        $Person = new User($_POST['username'], $_POST['password']);
+        $person = new User($_POST['username'], $_POST['password']);
 
 
-        echo "Welkom $Person->username";
+        echo "Welkom $person->username";
         //header("Location: /infinity/index.php?controller=rooster&action=showall");
         //exit;
     }

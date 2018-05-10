@@ -12,7 +12,13 @@
 <b> Menu:</b>
 <button>Home</button>
 <button>Login</button>
-<a href="index.php?controller=admin/admin&action=addForm">Admin</a>
+    <?php
+    require_once (APP_PATH . '/Model/Classes/User.php');
+    $person = new User('TEST', 'TEST123');
+    if($person->getRights() == 'admin' or 'slbadmin'){
+        echo "<a href='index.php?controller=admin/admin&action=addForm'>Admin</a>";
+    }
+    ?>
 <hr></nav>
 <br />
 <?php require(APP_PATH . '/routes.php'); ?>

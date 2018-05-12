@@ -24,10 +24,10 @@ class User{
 
         /** Uses a Try-Catch to be able to throw Exceptions if the User or password are incorrect */
         try{
-            if(!isset($realpassword)){
+            if(!isset($realpassword['wachtwoord'])){
                 throw new Exception("Gebruiker niet gevonden");
             }
-            if(password_verify($pass, $realpassword) == false){
+            if(password_verify($pass, $realpassword['wachtwoord']) == false){
                 throw new Exception("Het ingevoerde wachtwoord is incorrect");
             }
         }catch (Exception $e) {

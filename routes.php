@@ -20,7 +20,7 @@ function isAdmin() {
 }
 
 // check if the controller and action are set, otherwise fall back to default controller and action
-if (isset($_GET['controller']) && isset($_GET{'action'})) {
+if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = $_GET['controller'];
     $action = $_GET['action'];
 }   else {
@@ -49,7 +49,7 @@ if (!array_key_exists($controller, $allowedControllers)) {
 } else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');
 } else if (isset($adminLoginRequired) && !isAdmin()) {
-    header('/infinity/index.php?controller=home&loginform');
+    header('/index.php?controller=home&action=loginform');
 } else {
     call($controller, $action);
 }

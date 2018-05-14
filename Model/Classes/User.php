@@ -77,8 +77,6 @@ class User{
         $stmt = $dbh->prepare("SELECT studentbegeleider, systeembeheerder FROM werknemer WHERE ID=:ID");
         $stmt->execute($values);
         $werknemer = $stmt->fetch();
-        print_r($student);
-        print_r($werknemer);
 
         if(!empty($student['nummer'])){
             $_SESSION["rechten"] = 'student';

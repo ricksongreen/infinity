@@ -15,11 +15,10 @@
 <button>Home</button>
     <button><a href ='index.php'>Login</a></button>
     <?php
-    global $rechten;
-    if($rechten == 'admin' or $rechten == 'slbadmin'){
+    if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
     echo "<a href='index.php?controller=admin/admin&action=addForm'>Admin</a>";
+    echo "<a href='index.php?controller=admin/admin&action=showUsers'>Student List</a>";
     }?>
-    <a href="index.php?controller=admin/admin&action=showUsers">Student List</a>
 <hr></nav>
 <br />
 <?php require(APP_PATH . '/routes.php'); ?>

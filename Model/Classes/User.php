@@ -31,8 +31,7 @@ class User{
             if(password_verify($pass, $realpassword['wachtwoord']) == false){
                 throw new Exception("Het ingevoerde wachtwoord is incorrect");
             }
-            global $rechten;
-            $rechten = $this->getRights();
+            $this->getRights();
         }catch (Exception $e) {
             echo "ERROR: ".$e->getMessage();
             exit;
@@ -78,17 +77,19 @@ class User{
         $stmt = $dbh->prepare("SELECT studentbegeleider, systeembeheerder FROM werknemer WHERE ID=:ID");
         $stmt->execute($values);
         $werknemer = $stmt->fetch();
+        print_r($student);
+        print_r($werknemer);
 
         if(!empty($student['nummer'])){
-            return 'student';
+            $_SESSION["rechten"] = 'student';
         }elseif($werknemer['studentbegeleider'] && $werknemer['systeembeheerder'] == 0){
-            return 'docent';
+            $_SESSION["rechten"] = 'docent';
         }elseif($werknemer['studentbegeleider'] == 1 && $werknemer['systeembeheerder'] == 0){
-            return 'slb';
+            $_SESSION["rechten"] = 'slb';
         }elseif($werknemer['studentbegeleider'] == 0 && $werknemer['systeembeheerder'] == 1){
-            return 'admin';
+            $_SESSION["rechten"] = 'admin';
         }elseif($werknemer['studentbegeleider'] == 1 && $werknemer['systeembeheerder'] == 1){
-            return 'slbadmin';
+            $_SESSION["rechten"] = 'slbadmin';
         }
     }
 }

@@ -31,6 +31,14 @@
         .active {
             background-color: #4CAF50;
         }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -63,6 +71,10 @@
 <!--    <hr>-->
 <!--    &copy; 2018 - Infinity Team 8-->
 <!--</footer>-->
+
+<div class="footer">
+    <p>&copy; 2018 - Infinity Team 8</p>
+</div>
 
 </body>
 </html>

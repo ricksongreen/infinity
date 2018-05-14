@@ -10,18 +10,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <title>
-        Login Infinity
-    </title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>
-        Login Infinity
-    </h1>
-<form method="post" action="index.php?controller=home&action=loginhandler">
-    Gebruikersnaam: <input type="text" name="username" required><br><br>
-    Wachtwoord: <input type="password" name="password" required><br><br>
-    <input type="submit" value="Log in">
-</form>
+<div class="loginbox">
+    <img src="resources/avatar1.jpg" class="avatar">
+    <h1>Enter Quiz</h1>
+    <form method="post" action="index.php?controller=home&action=loginhandler">
+        <p>Username</p><br>
+        <input type="text" name="key" placeholder="Enter Username" id="key"/><br><br>
+        <p>Password</p>
+        <input type="password" value="password" placeholder="Enter Password" required>
+        <input type="submit" Login>
+    </form>
+</div>
+
+
 </body>
 </html>

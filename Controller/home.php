@@ -19,3 +19,7 @@ function loginhandler() {
         //header("Location: /infinity/index.php?controller=rooster&action=showall");
         //exit;
     }
+
+function error(){
+    echo "er is iets misgegaan";
+}

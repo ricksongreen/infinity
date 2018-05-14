@@ -5,10 +5,10 @@
  * Date: 8-5-2018
  * Time: 08:18
  */
-require_once APP_PATH . '/Model/admin.php';
-function addForm() {
+require_once APP_PATH .'/Model/admin.php';
 
-    require_once APP_PATH . '/Views/admin/registration.php';
+function addForm() {
+    require_once APP_PATH .'/Views/admin/registration.php';
 }
 
 function add() {
@@ -20,4 +20,10 @@ function add() {
 
     echo "<p>user aangemaakt</p>";
     showall();
+}
+
+function showUsers() {
+    $users = getAllUsers();
+
+    require_once APP_PATH . '/Views/admin/allUsers.php';
 }

@@ -68,3 +68,9 @@ function addUser($user) {
         $stmt->execute($values);
     }
 }
+
+function getAllUsers() {
+    /** requests the information of users out of the database*/
+    global $dbh;
+    return $dbh->query("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker");
+}

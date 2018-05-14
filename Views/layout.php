@@ -12,7 +12,11 @@
 <b> Menu:</b>
 <button>Home</button>
 <button>Login</button>
-    <a href='index.php?controller=admin/admin&action=addForm'>Admin</a>
+    <?php
+    global $rechten;
+    if($rechten == 'admin' or $rechten == 'slbadmin'){
+    echo "<a href='index.php?controller=admin/admin&action=addForm'>Admin</a>";
+    }?>
 <hr></nav>
 <br />
 <?php require(APP_PATH . '/routes.php'); ?>

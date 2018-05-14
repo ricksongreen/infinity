@@ -9,6 +9,7 @@
 class User{
     public $username;
 
+
     public function __construct($user, $pass) {
         /** Sets the username of the User in the Class */
         $this->username = $user;
@@ -30,6 +31,8 @@ class User{
             if(password_verify($pass, $realpassword['wachtwoord']) == false){
                 throw new Exception("Het ingevoerde wachtwoord is incorrect");
             }
+            global $rechten;
+            $rechten = $this->getRights();
         }catch (Exception $e) {
             echo "ERROR: ".$e->getMessage();
             exit;

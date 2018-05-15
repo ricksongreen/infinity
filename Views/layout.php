@@ -38,7 +38,7 @@
         }
 
         li a:hover:not(.active) {
-            background-color: #111;
+            background-color: #748c92;
         }
 
         .active {
@@ -55,15 +55,7 @@
     </style>
 </head>
 <body>
-<!--<nav>-->
-<!--<b> Menu:</b>-->
-<!--    <button><a href ='index.php'>Login</a></button>-->
-<!--    --><?php
-//    if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
-//    echo "<a href='index.php?controller=admin/admin&action=addForm'>Admin</a>";
-//    echo "<a href='index.php?controller=admin/admin&action=showUsers'>Student List</a>";
-//    }?>
-<!--</nav>-->
+
 
 <ul>
     <li><a href="index.php">Home</a></li>
@@ -76,11 +68,11 @@
 </ul>
 
 
-<?php require(APP_PATH . '/routes.php'); ?>
-
 <div class="footer">
     <p>&copy; 2018 - Infinity Team 8</p>
 </div>
+
+<?php require(APP_PATH . '/routes.php'); ?>
 
 </body>
 </html>

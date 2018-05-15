@@ -17,7 +17,7 @@
 
     <h1>Gebruikers</h1>
 
-    <table id="customer">
+    <table id="customers">
         <thead>
         <tr>
             <th>Voornaam</th>
@@ -33,6 +33,7 @@
             </tr>
         <?php } ?>
     </table>
+
 
 </div>
 </html>

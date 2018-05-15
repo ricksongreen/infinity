@@ -11,16 +11,15 @@
 <head>
     <title>Infinity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="htdocs/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
-<div class="w3-container">
     <h1>Gebruikers</h1>
 
-    <table class="w3-table-all">
+    <table id="customer">
         <thead>
-        <tr class="w3-red">
+        <tr>
             <th>Voornaam</th>
             <th>Tussenvoegsel</th>
             <th>Achternaam</th>
@@ -34,5 +33,6 @@
             </tr>
         <?php } ?>
     </table>
+
 </div>
 </html>

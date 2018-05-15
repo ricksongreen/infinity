@@ -22,7 +22,7 @@
         <input type="text" name="username" placeholder="Enter Username" id="key" required><br><br>
         <p>Password</p>
         <input type="password" name="password" placeholder="Enter Password" required>
-        <input type="submit">
+        <input type="submit" value="Login">
     </form>
 </div>
 

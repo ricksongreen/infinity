@@ -73,7 +73,7 @@
         echo "<a href='index.php?controller=admin/admin&action=addForm'>Admin</a>";
         echo "<a href='index.php?controller=admin/admin&action=showUsers'>Student List</a>";
     }?>
-    <li style="float:right"><a  href="index.php">T08</a></li>
+    <li style="float:right"><a  href="index.php">T08 Infinity</a></li>
 </ul>
 
 

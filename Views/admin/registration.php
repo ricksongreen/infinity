@@ -22,6 +22,7 @@
         .container {
             padding: 16px;
             background-color: white;
+            background: transparent;
         }
 
         /* Full-width input fields */

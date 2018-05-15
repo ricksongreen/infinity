@@ -4,7 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Infinity</title>
-    <style> ul {
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        ul {
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -65,12 +70,6 @@
 
 
 <?php require(APP_PATH . '/routes.php'); ?>
-
-<!--<footer>-->
-<!--    <br><br>-->
-<!--    <hr>-->
-<!--    &copy; 2018 - Infinity Team 8-->
-<!--</footer>-->
 
 <div class="footer">
     <p>&copy; 2018 - Infinity Team 8</p>

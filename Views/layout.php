@@ -58,14 +58,16 @@
 
 
 <ul>
-    <li><a href="index.php">Home</a></li>
+    <li><a href="index.php?controller=home&action=homepage">Home</a></li>
     <?php
     if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
         echo "<li> <a href='index.php?controller=admin/admin&action=addForm'>Admin</a></li>";
         echo "<li> <a href='index.php?controller=admin/admin&action=showUsers'>Student List</a></li>";
+    }
+    if($_SESSION["ingelogd"] == true){
         echo "<li> <a href='index.php?controller=home&action=logout'>Log out</a></li>";
-    }?>
-    <li style="float:right"><a  href="index.php">T08 Infinity</a></li>
+    } ?>
+    <li style="float:right"><a  href="index.php?controller=home&action=homepage">T08 Infinity</a></li>
 </ul>
 
 

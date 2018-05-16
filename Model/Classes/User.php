@@ -32,6 +32,8 @@ class User{
                 throw new Exception("Het ingevoerde wachtwoord is incorrect");
             }
             $this->getRights();
+            $_SESSION['ingelogd'] = true;
+            header('Location:index.php?controller=home&action=homepage');
         }catch (Exception $e) {
             echo "ERROR: ".$e->getMessage();
             exit;

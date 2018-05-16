@@ -23,11 +23,14 @@ function loginhandler() {
 function logout() {
     session_destroy();
     echo "je bent uitgelogd";
-    require_once APP_PATH . '/Views/Login.php';
-
+    header('Location: index.php');
 }
 
 function error(){
     echo "er is iets misgegaan";
+}
+
+function homepage(){
+    require_once APP_PATH . '/Views/homepage.php';
 }
 

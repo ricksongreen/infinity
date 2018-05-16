@@ -15,7 +15,9 @@ function call($controller, $action) {
 
 // if the user logs in as a systemowner
 function isAdmin() {
-    return isset($_SESSION['admin']) && $_SESSION['admin'] === true;
+    if($_SESSION['rechten'] == 'admin' or $_SESSION['rechten'] == 'slbadmin'){
+    return true;
+    }
 }
 
 // check if the controller and action are set, otherwise fall back to default controller and action
@@ -47,8 +49,12 @@ if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'error');
 } else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');
-} else if (isset($adminLoginRequired) && !isAdmin()) {
-    header('/index.php?controller=home&action=loginform');
+} else if (in_array($action, $allowedControllers['admin/admin']) and isAdmin() == false) {
+    if($_SESSION['ingelogd'] == true){
+        header('Location: index.php?controller=home&action=homepage');
+    }else {
+        header('/index.php?controller=home&action=loginform');
+    }
 } else {
     call($controller, $action);
 }

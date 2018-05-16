@@ -22,20 +22,14 @@ class User{
         $stmt->execute($values);
         $realpassword = $stmt->fetch();
 
-        /** Uses a Try-Catch to be able to throw Exceptions if the User or password are incorrect */
-        try{
-            if(!isset($realpassword['wachtwoord'])){
-                throw new Exception("Gebruiker niet gevonden");
-            }
-            if(password_verify($pass, $realpassword['wachtwoord']) == false){
-                throw new Exception("Het ingevoerde wachtwoord is incorrect");
-            }
+        if(!isset($realpassword['wachtwoord'])){
+            header('Location: index.php');
+        }elseif(password_verify($pass, $realpassword['wachtwoord']) == false){
+            header('Location: index.php');
+        }else{
             $this->getRights();
             $_SESSION['ingelogd'] = true;
             header('Location:index.php?controller=home&action=homepage');
-        }catch (Exception $e) {
-            echo "ERROR: ".$e->getMessage();
-            exit;
         }
     }
 
@@ -81,7 +75,7 @@ class User{
 
         if(!empty($student['nummer'])){
             $_SESSION["rechten"] = 'student';
-        }elseif($werknemer['studentbegeleider'] && $werknemer['systeembeheerder'] == 0){
+        }elseif($werknemer['studentbegeleider'] == 0 && $werknemer['systeembeheerder'] == 0){
             $_SESSION["rechten"] = 'docent';
         }elseif($werknemer['studentbegeleider'] == 1 && $werknemer['systeembeheerder'] == 0){
             $_SESSION["rechten"] = 'slb';

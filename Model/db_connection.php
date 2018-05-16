@@ -8,10 +8,9 @@
 
 try {
     $dbh = new PDO('mysql:host=localhost;dbname=t08er1718_t08',
-        't08er1718_t08',
-        'infinity',
+        'root',
+        '',
         array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-    die(json_encode(array('outcome' => true)));
 }catch(PDOException $exception){
     die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
 }

@@ -1,7 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Mischa-PC
+ * User: T08_Infinity
  * Date: 03/05/2018
  * Time: 11:14
  */

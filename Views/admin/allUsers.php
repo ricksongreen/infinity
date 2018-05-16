@@ -11,13 +11,13 @@
 <head>
     <title>Infinity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <style href="style.css" type="text/css" rel="stylesheet"></style>
 </head>
 
 
     <h1>Gebruikers</h1>
 
-    <table id="customers">
+    <table id="customers" class="customers">
         <thead>
         <tr>
             <th>Voornaam</th>

@@ -33,10 +33,12 @@ class User{
         }
     }
 
+    /** hashes a given password and returns it */
     public function passwordHash($pw){
         return password_hash($pw, PASSWORD_DEFAULT);
     }
 
+    /** retrieves the user's name from the database */
     public function getName(){
         global $dbh;
         $stmt = $dbh->prepare("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam=:user");
@@ -49,6 +51,7 @@ class User{
         $name = $stmt->fetch();
     }
 
+    /** since the usernames are unique, the matching ID's can be retrieves via the username */
     public function getID(){
         global $dbh;
         $stmt = $dbh->prepare("SELECT ID FROM gebruiker WHERE gebruikersnaam=:gebruikersnaam");
@@ -60,6 +63,7 @@ class User{
         return $id['ID'];
     }
 
+    /** checks the database to see what rights users have */
     public function getRights(){
         global $dbh;
         $id = $this->getID();

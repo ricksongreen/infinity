@@ -18,11 +18,23 @@ function add() {
     addUser($user);
 
     echo "<p>user aangemaakt</p>";
-    showall();
 }
 
 function showUsers() {
     $users = getAllUsers();
 
     require_once APP_PATH . '/Views/admin/allUsers.php';
+}
+
+/** redirects to the form which lets the admins create a class */
+function addClassForm() {
+    require_once APP_PATH . '/Views/admin/newClass.php';
+}
+
+/** failsave to check if the Class name has indeed been entered and uses the given information to create a class in the database */
+function addClass(){
+    if(empty($_POST['klasnaam'])){
+        header('Location: index.php?controller=admin/admin&action=addClassForm');
+    }
+    makeClass($_POST);
 }

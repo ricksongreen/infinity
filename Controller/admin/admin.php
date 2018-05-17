@@ -38,3 +38,11 @@ function addClass(){
     }
     makeClass($_POST);
 }
+
+function addLesson(){
+    makeLesson($_POST);
+}
+
+function addLessonForm(){
+    require_once APP_PATH . '/Views/admin/newLesson.php';
+}

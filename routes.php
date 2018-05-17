@@ -32,7 +32,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 // a list of the controllers we have and their actions we consider "allowed" values
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage'),
-    'admin/admin' => array('addForm', 'add', 'showUsers', 'addClass', 'addClassForm')
+    'admin/admin' => array('addForm', 'add', 'showUsers', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm')
 );
 
 

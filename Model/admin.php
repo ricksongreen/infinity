@@ -74,6 +74,27 @@ function getAllUsers() {
     return $dbh->query("SELECT gebruikersnaam, voornaam, tussenvoegsel, achternaam FROM gebruiker");
 }
 
+function getAllClasslessStudents(){
+    global $dbh;
+    /** makes sure the array is clean so that this function can get called multiple times */
+    unset($array);
+    /** retrieves al the classless students and sets them in an array called $array */
+    $stmt = $dbh->query("SELECT ID, nummer, opleiding FROM student WHERE klas_ID IS NULL");
+    $ids = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($ids as $id){
+        $stmt = $dbh->prepare("SELECT ID, voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE ID = :id");
+        $values = array (
+            'id' => $id['ID']
+        );
+        $stmt->execute($values);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        $data['nummer'] = $id['nummer'];
+        $data['opleiding'] = $id['opleiding'];
+        $array[] = $data;
+    }
+    return $array;
+}
+
 function makeClass($array){
     global $dbh;
     /** checks if the filled in class name might not already be in use and throws an error if that is the case */
@@ -109,27 +130,13 @@ function makeClass($array){
             $stmt->execute($values);
         }
     }
-
-
 }
 
-function getAllClasslessStudents(){
+function makeLesson($data){
     global $dbh;
-    /** makes sure the array is clean so that this function can get called multiple times */
-    unset($array);
-    /** retrieves al the classless students and sets them in an array called $array */
-    $stmt = $dbh->query("SELECT ID, nummer, opleiding FROM student WHERE klas_ID IS NULL");
-    $ids = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    foreach($ids as $id){
-        $stmt = $dbh->prepare("SELECT ID, voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE ID = :id");
-        $values = array (
-            'id' => $id['ID']
-        );
-        $stmt->execute($values);
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $data['nummer'] = $id['nummer'];
-        $data['opleiding'] = $id['opleiding'];
-        $array[] = $data;
-    }
-    return $array;
+    $stmt = $dbh->prepare("INSERT INTO lessen(naam, locatie, date, begintijd, eindtijd, klas_ID, docent_ID) VALUES (:naam, :locatie, :date, :begintijd, :eindtijd, :klas_ID, :docent_ID)");
+    $values = array (
+        'naam' => $data['name'],
+        'locatie' => $data['location']
+    );
 }

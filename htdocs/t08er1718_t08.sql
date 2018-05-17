@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Gegenereerd op: 16 mei 2018 om 08:52
+-- Gegenereerd op: 17 mei 2018 om 11:37
 -- Serverversie: 5.5.41-MariaDB
 -- PHP-versie: 5.6.31
 
@@ -100,8 +100,9 @@ CREATE TABLE `lessen` (
   `ID` int(8) NOT NULL,
   `naam` varchar(60) NOT NULL,
   `locatie` varchar(8) NOT NULL,
-  `begintijd` datetime NOT NULL,
-  `eindtijd` datetime NOT NULL,
+  `date` date NOT NULL,
+  `begintijd` time NOT NULL,
+  `eindtijd` time NOT NULL,
   `klas_ID` int(5) NOT NULL,
   `docent_ID` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -207,7 +208,7 @@ ALTER TABLE `aanwezigheid`
 -- AUTO_INCREMENT voor een tabel `gebruiker`
 --
 ALTER TABLE `gebruiker`
-  MODIFY `ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT voor een tabel `klas`
 --

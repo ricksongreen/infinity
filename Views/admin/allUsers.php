@@ -1,6 +1,7 @@
 <?php
 /**
- * User: T08_Infinity
+ * Created by PhpStorm.
+ * User: derpsider
  * Date: 25/04/2018
  * Time: 10:39
  */
@@ -14,26 +15,34 @@
 </head>
 
 
-    <h1>Gebruikers</h1>
+<h1>Gebruikers</h1>
 
-    <table id="customers" class="customers">
-        <thead>
+<form action="index.php?controller=admin/admin&action=search" method="POST">
+    <input type= "text" name="query">
+    <input type= "submit" value="Search">
+</form>
+
+<table id="customers" class="customers">
+    <thead>
+    <tr>
+        <th>Gebruikersnaam</th>
+        <th>Voornaam</th>
+        <th>Tussenvoegsel</th>
+        <th>Achternaam</th>
+        <th>Verwijder</th>
+    </tr>
+    </thead>
+    <?php foreach ($users as $user) { ?>
         <tr>
-            <th>Gebruikernaam</th>
-            <th>Voornaam</th>
-            <th>Tussenvoegsel</th>
-            <th>Achternaam</th>
+            <td><?php echo $user['gebruikersnaam'] ?></td>
+            <td><?php echo $user['voornaam'] ?></td>
+            <td><?php echo $user['tussenvoegsel'] ?></td>
+            <td><?php echo $user['achternaam'] ?></td>
+            <td> <a href="index.php?controller=admin/admin&action=delete&id=<?php echo $user['id']; ?>"> delete </a>
+            </td>
         </tr>
-        </thead>
-        <?php foreach ($users as $user) { ?>
-            <tr>
-                <td><?php echo $user['gebruikersnaam']?></td>
-                <td><?php echo $user['voornaam'] ?></td>
-                <td><?php echo $user['tussenvoegsel'] ?></td>
-                <td><?php echo $user['achternaam'] ?></td>
-            </tr>
-        <?php } ?>
-    </table>
+    <?php } ?>
+</table>
 
 
 </div>

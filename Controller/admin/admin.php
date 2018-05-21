@@ -26,6 +26,23 @@ function showUsers() {
     require_once APP_PATH . '/Views/admin/allUsers.php';
 }
 
+/** directing the certain files needed for a searchbar to work */
+function search() {
+    require_once APP_PATH . '/Model/admin.php';
+
+    $query = $_POST['query'];
+    $users = searchUsers($query);
+
+    require_once APP_PATH . '/Views/admin/allUsers.php';
+}
+
+function delete() {
+    deleteUser($_GET['id']);
+
+    echo "<p>Gebruiker verwijderd</p>";
+    showall();
+}
+
 /** redirects to the form which lets the admins create a class */
 function addClassForm() {
     require_once APP_PATH . '/Views/admin/newClass.php';

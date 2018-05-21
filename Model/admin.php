@@ -74,6 +74,36 @@ function getAllUsers() {
     return $dbh->query("SELECT gebruikersnaam, voornaam, tussenvoegsel, achternaam FROM gebruiker");
 }
 
+
+function searchUsers($query) {
+    global $dbh;
+
+    $query = '%' . $query . '%';
+
+    $stmt = $dbh->prepare("SELECT * FROM gebruiker WHERE voornaam LIKE :query OR gebruikersnaam LIKE :query");
+
+    $waardes = array(
+        'query' => $query
+    );
+
+    $stmt->execute($waardes);
+
+    return $stmt->fetchAll();
+}
+
+function deleteUser($userId)
+{
+    global $dbh;
+
+    $stmt = $dbh->prepare("DELETE FROM gebruiker WHERE id=:userId");
+
+    $waardes = array(
+        'userId' => $userId
+    );
+
+    return $stmt->execute($waardes);
+}
+
 function getAllClasslessStudents(){
     global $dbh;
     /** makes sure the array is clean so that this function can get called multiple times */

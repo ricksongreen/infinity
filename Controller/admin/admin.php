@@ -17,7 +17,9 @@ function add() {
 
     addUser($user);
 
-    echo "<p>user aangemaakt</p>";
+    echo "<div class=\"container\">
+        <h1>User aangemaakt</h1>
+        </div>";
 }
 
 function showUsers() {
@@ -39,8 +41,11 @@ function search() {
 function delete() {
     deleteUser($_GET['id']);
 
-    echo "<p>Gebruiker verwijderd</p>";
-    //showall();
+    echo "<div class=\"container\">
+        <h1>User verwijderd</h1>
+        </div>";
+   // showall();
+
 }
 
 /** redirects to the form which lets the admins create a class */

@@ -83,7 +83,7 @@ function getAllTeachers(){
 function getAllUsers() {
     /** requests the information of users out of the database*/
     global $dbh;
-    return $dbh->query("SELECT gebruikersnaam, voornaam, tussenvoegsel, achternaam FROM gebruiker");
+    return $dbh->query("SELECT ID, gebruikersnaam, voornaam, tussenvoegsel, achternaam FROM gebruiker");
 }
 
 
@@ -99,15 +99,19 @@ function searchUsers($query) {
     return $stmt->fetchAll();
 }
 
-function deleteUser($userId){
-    /** deletes the information from the user in the database together with  the student or employee information */
-    global $dbh;
-    $stmt = $dbh->prepare("DELETE FROM gebruiker WHERE id=:userId");
-    $waardes = array(
-        'userId' => $userId
-    );
-    return $stmt->execute($waardes);
-}
+    function deleteUser($userId)
+    {
+        /** deletes the information from the user in the database together with  the student or employee information */
+        global $dbh;
+
+        $stmt = $dbh->prepare("DELETE FROM gebruiker WHERE id=:userId");
+
+        $waardes = array(
+            'userId' => $userId
+        );
+
+        return $stmt->execute($waardes);
+    }
 
 function getAllClasslessStudents(){
     global $dbh;

@@ -69,11 +69,13 @@ function addUser($user) {
 }
 
 function getAllClasses(){
+    /** requests the IDs and names of the classes from the database */
     global $dbh;
     return $dbh->query("SELECT ID, naam FROM klas");
 }
 
 function getAllTeachers(){
+    /** requests the IDs and numbers of the teachers from the database */
     global $dbh;
     return $dbh->query("SELECT ID, nummer FROM werknemer");
 }
@@ -86,31 +88,24 @@ function getAllUsers() {
 
 
 function searchUsers($query) {
+    /**  */
     global $dbh;
-
     $query = '%' . $query . '%';
-
     $stmt = $dbh->prepare("SELECT * FROM gebruiker WHERE voornaam LIKE :query OR gebruikersnaam LIKE :query");
-
     $waardes = array(
         'query' => $query
     );
-
     $stmt->execute($waardes);
-
     return $stmt->fetchAll();
 }
 
-function deleteUser($userId)
-{
+function deleteUser($userId){
+    /** deletes the information from the user in the database together with  the student or employee information */
     global $dbh;
-
     $stmt = $dbh->prepare("DELETE FROM gebruiker WHERE id=:userId");
-
     $waardes = array(
         'userId' => $userId
     );
-
     return $stmt->execute($waardes);
 }
 
@@ -173,6 +168,7 @@ function makeClass($array){
 }
 
 function makeLesson($data){
+    /** uses the data from the addLessonForm to create a lesson in the database */
     global $dbh;
     $stmt = $dbh->prepare("INSERT INTO lessen(naam, locatie, datum, begintijd, eindtijd, klas_ID, docent_ID) VALUES (:naam, :locatie, :datum, :begintijd, :eindtijd, :klas_ID, :docent_ID)");
     $values = array (

@@ -68,6 +68,16 @@ function addUser($user) {
     }
 }
 
+function getAllClasses(){
+    global $dbh;
+    return $dbh->query("SELECT ID, naam FROM klas");
+}
+
+function getAllTeachers(){
+    global $dbh;
+    return $dbh->query("SELECT ID, nummer FROM werknemer");
+}
+
 function getAllUsers() {
     /** requests the information of users out of the database*/
     global $dbh;
@@ -164,9 +174,15 @@ function makeClass($array){
 
 function makeLesson($data){
     global $dbh;
-    $stmt = $dbh->prepare("INSERT INTO lessen(naam, locatie, date, begintijd, eindtijd, klas_ID, docent_ID) VALUES (:naam, :locatie, :date, :begintijd, :eindtijd, :klas_ID, :docent_ID)");
+    $stmt = $dbh->prepare("INSERT INTO lessen(naam, locatie, datum, begintijd, eindtijd, klas_ID, docent_ID) VALUES (:naam, :locatie, :datum, :begintijd, :eindtijd, :klas_ID, :docent_ID)");
     $values = array (
         'naam' => $data['name'],
-        'locatie' => $data['location']
+        'locatie' => $data['location'],
+        'datum' => $data['date'],
+        'begintijd' => $data['startTime'],
+        'eindtijd' => $data['endTime'],
+        'klas_ID' => $data['class'],
+        'docent_ID' => $data['teacher']
     );
+    $stmt->execute($values);
 }

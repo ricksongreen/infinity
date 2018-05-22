@@ -40,7 +40,7 @@ function delete() {
     deleteUser($_GET['id']);
 
     echo "<p>Gebruiker verwijderd</p>";
-    showall();
+    //showall();
 }
 
 /** redirects to the form which lets the admins create a class */

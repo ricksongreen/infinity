@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css"
 </head>
 
-<form method="post" action="index.php?controller=admin/admin&action=add">
+<form method="post" action="index.php?controller=admin&action=add">
     <div class="container">
         <h1>Infinity Registratie</h1>
             <b>Voornaam</b> <input type="text" name="voornaam" placeholder="Type voornaam" required><br>

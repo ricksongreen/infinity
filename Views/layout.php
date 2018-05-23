@@ -60,9 +60,13 @@
     <li><a href="index.php?controller=home&action=homepage">Home</a></li>
     <?php
     if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
-        echo "<li> <a href='index.php?controller=admin/admin&action=addForm'>Registratie</a></li>";
-        echo "<li> <a href='index.php?controller=admin/admin&action=showUsers'>Student List</a></li>";
-        echo "<li> <a href='index.php?controller=admin/admin&action=addClassForm'>Klassen Aanmaken</a></li>";
+        echo "<li> <a href='index.php?controller=admin&action=addForm'>Registratie</a></li>";
+        echo "<li> <a href='index.php?controller=admin&action=showUsers'>Student List</a></li>";
+        echo "<li> <a href='index.php?controller=admin&action=addClassForm'>Klassen Aanmaken</a></li>";
+        echo "<li> <a href='index.php?controller=admin&action=addLessonForm'>Les Aanmaken</a></li>";
+    }
+    if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin' or $_SESSION["rechten"] == 'docent' or $_SESSION["rechten"] == 'slb'){
+        echo "<li> <a href='index.php?controller=teacher&action=showClass'>Klassenlijst</a></li>";
     }
     if($_SESSION["ingelogd"] == true){
         echo "<li style='float:right'> <a href='index.php?controller=home&action=logout'>Log out</a></li>";

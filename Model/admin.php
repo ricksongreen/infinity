@@ -186,3 +186,14 @@ function makeLesson($data){
     );
     $stmt->execute($values);
 }
+
+public function getStudentsFromClass($class){
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT ID, nummer FROM student WHERE klas_ID = :class");
+    $values = array(
+        "class" => $class
+    );
+    $stmt->execute($values);
+    $studenten = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $studenten;
+}

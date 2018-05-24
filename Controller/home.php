@@ -12,12 +12,7 @@ function loginform() {
 }
 
 function loginhandler() {
-        $person = new User($_POST['username'], $_POST['password']);
-
-
-        echo "Welkom $person->username";
-        //header("Location: /infinity/index.php?controller=rooster&action=showall");
-        //exit;
+        $_SESSION['user'] = serialize(new User($_POST['username'], $_POST['password']));
     }
 
 function logout() {
@@ -32,5 +27,4 @@ function error(){
 
 function homepage(){
     require_once APP_PATH . '/Views/homepage.php';
-    print_r(getStudentsFromClass(7));
 }

@@ -4,6 +4,9 @@
  * Date: 26/04/2018
  * Time: 11:10
  */
+if($_SESSION['ingelogd'] == true){
+    header('Location: index.php?controller=home&action=homepage');
+}
 ?>
 <html>
 <head>

@@ -62,7 +62,7 @@
         echo "<li><a href='index.php?controller=home&action=homepage'>Home</a></li>";
         if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
             echo "<li> <a href='index.php?controller=admin&action=addForm'>Registratie</a></li>";
-            echo "<li> <a href='index.php?controller=admin&action=showUsers'>Student List</a></li>";
+            echo "<li> <a href='index.php?controller=admin&action=showUsers'>Gebruikerslijst</a></li>";
             echo "<li> <a href='index.php?controller=admin&action=addClassForm'>Klassen Aanmaken</a></li>";
             echo "<li> <a href='index.php?controller=admin&action=addLessonForm'>Les Aanmaken</a></li>";
         }

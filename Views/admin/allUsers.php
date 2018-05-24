@@ -68,7 +68,7 @@
             <td><?php echo $user['voornaam'] ?></td>
             <td><?php echo $user['tussenvoegsel'] ?></td>
             <td><?php echo $user['achternaam'] ?></td>
-            <td> <a href="index.php?controller=admin&action=delete&id=<?php echo $user['ID']; ?>"> delete </a>
+            <td> <a href="index.php?controller=admin&action=delete&id=<?php echo $user['ID']; ?>">verwijderen</a>
             </td>
         </tr>
     <?php } ?>

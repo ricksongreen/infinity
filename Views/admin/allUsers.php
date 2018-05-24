@@ -49,7 +49,7 @@
 <!--</form>-->
 
 <form action="index.php?controller=admin&action=search" method="POST">
-    <input type="text" name="query" placeholder="Zoek gebruiker..">
+    <input type="text" name="query" placeholder="Zoek..">
 </form>
 
 <table id="customers" class="customers">

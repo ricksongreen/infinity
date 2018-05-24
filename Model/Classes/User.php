@@ -8,7 +8,6 @@
 class User{
     public $username;
 
-
     public function __construct($user, $pass) {
         /** Sets the username of the User in the Class */
         $this->username = $user;
@@ -64,7 +63,7 @@ class User{
     }
 
     /** checks the database to see what rights users have */
-    public function getRights(){
+    private function getRights(){
         global $dbh;
         $id = $this->getID();
         $stmt = $dbh->prepare("SELECT nummer FROM student WHERE ID=:ID");
@@ -89,16 +88,4 @@ class User{
             $_SESSION["rechten"] = 'slbadmin';
         }
     }
-
-    public function getStudentsFromClass($class){
-        global $dbh;
-        $stmt = $dbh->prepare("SELECT ID, nummer FROM student WHERE klas_ID = :class");
-        $values = array(
-            "class" => $class
-        );
-        $stmt->execute($values);
-        $studenten = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $studenten;
-    }
 }
-

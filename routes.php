@@ -32,7 +32,8 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 // a list of the controllers we have and their actions we consider "allowed" values
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage'),
-    'admin/admin' => array('addForm', 'add', 'showUsers', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm')
+    'admin' => array('addForm', 'add', 'showUsers', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm'),
+    'teacher' => array('showClass')
 );
 
 
@@ -49,7 +50,7 @@ if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'error');
 } else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');
-} else if (in_array($action, $allowedControllers['admin/admin']) and isAdmin() == false) {
+} else if (in_array($action, $allowedControllers['admin']) and isAdmin() == false) {
     if($_SESSION['ingelogd'] == true){
         header('Location: index.php?controller=home&action=homepage');
     }else {

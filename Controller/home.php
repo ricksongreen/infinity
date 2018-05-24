@@ -5,6 +5,7 @@
  * Time: 12:01
  */
 include_once(APP_PATH. '/Model/Classes/User.php');
+include_once(APP_PATH. '/Model/teacher.php');
 //login page
 function loginform() {
     require_once APP_PATH . '/Views/login.php';
@@ -31,5 +32,5 @@ function error(){
 
 function homepage(){
     require_once APP_PATH . '/Views/homepage.php';
+    print_r(getStudentsFromClass(7));
 }
-

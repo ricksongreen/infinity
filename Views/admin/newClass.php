@@ -13,7 +13,7 @@ require_once APP_PATH . '/Model/admin.php';
     <link rel="stylesheet" type="text/css" href="style.css"
     </head>
 <body>
-<form method="post" action="index.php?controller=admin/admin&action=addClass">
+<form method="post" action="index.php?controller=admin&action=addClass">
     <div class="container">
         <h1>Klassen aanmaken</h1>
             <b>Klasnaam</b> <input type="text" name="klasnaam" required><br>

@@ -175,7 +175,7 @@ function makeLesson($data){
     /** uses the data from the addLessonForm to create a lesson in the database */
     global $dbh;
     $stmt = $dbh->prepare("INSERT INTO lessen(naam, locatie, datum, begintijd, eindtijd, klas_ID, docent_ID) VALUES (:naam, :locatie, :datum, :begintijd, :eindtijd, :klas_ID, :docent_ID)");
-    $values = array (
+    $values = array(
         'naam' => $data['name'],
         'locatie' => $data['location'],
         'datum' => $data['date'],
@@ -185,15 +185,4 @@ function makeLesson($data){
         'docent_ID' => $data['teacher']
     );
     $stmt->execute($values);
-}
-
-public function getStudentsFromClass($class){
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT ID, nummer FROM student WHERE klas_ID = :class");
-    $values = array(
-        "class" => $class
-    );
-    $stmt->execute($values);
-    $studenten = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $studenten;
 }

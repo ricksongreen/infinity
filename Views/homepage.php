@@ -14,7 +14,7 @@ if($_SESSION['rechten'] == 'docent' or $_SESSION['rechten'] == 'slb' or $_SESSIO
 }
 ?>
 
-<div class="container1">
+<div class="container">
     <div class="row">
         <div class="col-12">
             <div class="row day-columns">

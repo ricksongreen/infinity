@@ -6,7 +6,8 @@
  * Time: 20:48
  */
 
-/** takes an ID from a class and uses that information to retrieve all the students from said class */
+/** takes an ID from a class and uses that information to retrieve all the students from said class
+ * @return array with IDs, numbers and names of the students from the given class */
 function getStudentsFromClass($class){
     global $dbh;
     $stmt = $dbh->prepare("SELECT ID, nummer FROM student WHERE klas_ID = :class");
@@ -15,6 +16,7 @@ function getStudentsFromClass($class){
     );
     $stmt->execute($values);
     $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    /** retrieves the name of the student via the ID which was found in the last call to the database and sets it together in one array*/
     foreach($students as $student){
         $stmt = $dbh->prepare("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE ID =:ID");
         $value = array (
@@ -33,6 +35,8 @@ function getSomeClasses(){
     $stmt = $dbh->prepare("SELECT ID, naam FROM klas WHERE something");
 }
 
+/** uses the $_SESSION variable user to get the ID which can be used to get the lessons which are connected to the teacher
+ * @return array with information of the schedule of the teacher */
 function getScheduleTea(){
     $user = unserialize($_SESSION['user']);
     global $dbh;
@@ -42,6 +46,7 @@ function getScheduleTea(){
     );
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    /** gets the class name instead of the ID */
     foreach($data as $da){
         $stmt = $dbh->prepare("SELECT naam FROM klas WHERE ID = :ID");
         $value = array (

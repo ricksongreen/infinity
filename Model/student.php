@@ -6,9 +6,12 @@
  * Time: 11:41
  */
 
+/** retrieves the schedule information of the student
+ * @return array with that information */
 function getScheduleStu(){
     $user = unserialize($_SESSION['user']);
     global $dbh;
+    /** retrieves klas_ID */
     $stmt = $dbh->prepare("SELECT klas_ID FROM student WHERE ID=:ID");
     $values = array (
         'ID' => $user->ID
@@ -21,6 +24,7 @@ function getScheduleStu(){
     );
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    /** gets the nummers of the teachers instead of the ID */
     foreach($data as $da){
         $stmt = $dbh->prepare("SELECT nummer FROM werknemer WHERE ID = :ID");
         $value = array (

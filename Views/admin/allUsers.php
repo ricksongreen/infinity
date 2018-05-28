@@ -40,7 +40,7 @@
     </style>
 </head>
 
-
+<body>
 <h1>Gebruikers</h1>
 
 <!--<form action="index.php?controller=admin/admin&action=search" method="POST">-->
@@ -73,7 +73,6 @@
         </tr>
     <?php } ?>
 </table>
-
-
+</body>
 </div>
 </html>

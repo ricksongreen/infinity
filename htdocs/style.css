@@ -242,6 +242,7 @@ a {
     border-bottom: 1px solid ;
     text-align: center;
     padding: 5px;
+    min-width: 350px;
 
 }
 .day-content {
@@ -259,7 +260,7 @@ a {
     border-radius: 5px;
     padding: 3px;
     color: white;
-    padding: 5px;
+    padding: 20px;
     box-shadow: 0px 1px 15px 1px rgba(81, 77, 92, 0.08);
 }
 .title {

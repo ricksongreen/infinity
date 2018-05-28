@@ -36,7 +36,7 @@ if($_SESSION['rechten'] == 'docent' or $_SESSION['rechten'] == 'slb' or $_SESSIO
                         echo "<span class='title'>" . $les['naam'] . " - " . $les['klas'] . "</span>";
                     }
                     echo  "<footer>";
-                    echo "<span>" . $les['begintijd'] . "-" . $les['eindtijd'] . "</span>";
+                    echo "<span><br>" . $les['begintijd'] . "-" . $les['eindtijd'] . "</span>";
                     echo "<span>" . $les['locatie'] . "</span>";
                     echo "</footer>";
                     echo "</div>";

@@ -19,10 +19,10 @@ if($_SESSION['ingelogd'] == true){
     <img src="resources/avatar1.jpg" class="avatar">
     <h1>Login</h1>
     <form method="post" action="index.php?controller=home&action=loginhandler">
-        <p>Username</p>
-        <input type="text" name="username" placeholder="Enter Username" id="key" required><br><br>
-        <p>Password</p>
-        <input type="password" name="password" placeholder="Enter Password" required>
+        <p>Gebruikersnaam</p>
+        <input type="text" name="username" placeholder="Gebruikersnaam" id="key" required><br><br>
+        <p>Wachtwoord</p>
+        <input type="password" name="password" placeholder="Wachtwoord" required>
         <input type="submit" value="Login">
     </form>
 </div>

@@ -40,9 +40,10 @@ function getSomeClasses(){
 function getScheduleTea(){
     $user = unserialize($_SESSION['user']);
     global $dbh;
-    $stmt = $dbh->prepare("SELECT * FROM lessen WHERE docent_ID =:ID ORDER BY datum, begintijd ASC");
+    $stmt = $dbh->prepare("SELECT * FROM lessen WHERE docent_ID =:ID AND datum=:datum ORDER BY datum, begintijd ASC");
     $values = array (
-        'ID' => $user->ID
+        'ID' => $user->ID,
+        'datum' => date("Y-m-d")
     );
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

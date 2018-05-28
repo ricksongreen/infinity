@@ -43,13 +43,13 @@
 <body>
 <h1>Gebruikers</h1>
 
-<!--<form action="index.php?controller=admin/admin&action=search" method="POST">-->
+<!--<form action="index.php?controller=admin&action=search" method="POST">-->
 <!--    <input type= "text" name="query">-->
 <!--    <input type= "submit" value="Search">-->
 <!--</form>-->
 
-<form action="index.php?controller=admin/admin&action=search" method="POST">
-    <input type="text" name="query" placeholder="Search..">
+<form action="index.php?controller=admin&action=search" method="POST">
+    <input type="text" name="query" placeholder="Zoek..">
 </form>
 
 <table id="customers" class="customers">
@@ -68,7 +68,7 @@
             <td><?php echo $user['voornaam'] ?></td>
             <td><?php echo $user['tussenvoegsel'] ?></td>
             <td><?php echo $user['achternaam'] ?></td>
-            <td> <a href="index.php?controller=admin/admin&action=delete&id=<?php echo $user['ID']; ?>"> delete </a>
+            <td><a href="index.php?controller=admin&action=delete&id=<?php echo $user['ID']; ?>">verwijderen
             </td>
         </tr>
     <?php } ?>

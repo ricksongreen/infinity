@@ -15,9 +15,9 @@ require_once APP_PATH . '/Model/admin.php';
     <link rel="stylesheet" type="text/css" href="style.css"
 </head>
 <body>
-<form method="post" action="index.php?controller=admin/admin&action=addLesson">
+<form method="post" action="index.php?controller=admin&action=addLesson">
     <div class="container">
-        <h1>Infinity Registratie</h1>
+        <h1>Les Aanmaken</h1>
             <b>Naam</b> <input type="text" name="name" required><br>
             <b>Locatie</b> <input type="text" name="location" required><br>
             <b>Datum</b> <input type="date" name="date" required><br>

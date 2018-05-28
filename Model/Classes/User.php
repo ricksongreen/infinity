@@ -7,7 +7,7 @@
 
 class User{
     public $username;
-
+    public $ID;
 
     public function __construct($user, $pass) {
         /** Sets the username of the User in the Class */
@@ -64,9 +64,10 @@ class User{
     }
 
     /** checks the database to see what rights users have */
-    public function getRights(){
+    private function getRights(){
         global $dbh;
         $id = $this->getID();
+        $this->ID = $id;
         $stmt = $dbh->prepare("SELECT nummer FROM student WHERE ID=:ID");
         $values = array(
             'ID' => $id
@@ -90,4 +91,3 @@ class User{
         }
     }
 }
-

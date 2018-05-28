@@ -4,10 +4,10 @@
  * Date: 8-5-2018
  * Time: 08:18
  */
-require_once APP_PATH .'/Model/admin.php';
+require_once APP_PATH . '/Model/admin.php';
 
 function addForm() {
-    require_once APP_PATH .'/Views/admin/registration.php';
+    require_once APP_PATH . '/Views/admin/registration.php';
 }
 
 function add() {
@@ -56,7 +56,7 @@ function addClassForm() {
 /** failsave to check if the Class name has indeed been entered and uses the given information to create a class in the database */
 function addClass(){
     if(empty($_POST['klasnaam'])){
-        header('Location: index.php?controller=admin/admin&action=addClassForm');
+        header('Location: index.php?controller=admin&action=addClassForm');
     }
     makeClass($_POST);
 }

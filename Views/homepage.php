@@ -55,7 +55,6 @@ $arrayLes = [];
                     if($_SESSION['rechten'] == 'student'){
                         echo "<span class='title'>" . $les['naam'] . "</span>";
                         echo "<span class='title span'>" . $les['nummer'] . "</span>";
-
                     }else {
                         echo "<span class='title'>" . $les['naam'] . "</span>";
                         echo "<span class='title span'>" . $les['klas'] . "</span>";
@@ -89,7 +88,7 @@ $arrayLes = [];
                     document.getElementById('register').style.display = 'block';
                     document.getElementById('container').style.display = 'none';
                     document.getElementById('lessonname').innerHTML = " . "'" . $array['name'] . "'" . ";
-                    document.getElementById('hidden').innerHTML = " . "\"<input type='hidden' name='ID' value='" . $array['ID'] . "'>\"" . ";
+                    document.getElementById('hidden').innerHTML = \"<input type='hidden' name='ID' value='" . $array['ID'] . "'><input type='hidden' name='startTime' value='" . $array['startTime'] . "'>\";
                     };";
                 }
             }

@@ -41,9 +41,9 @@ $arrayLes = [];
                 if(!empty($lessen)){
                 foreach($lessen as $les){
                     $there = registered($les['ID']);
-                    if($there['aanwezigheid'] == 1){
+                    if($there['aanwezigheid'] === '1'){
                         echo "<div class='event green' id='$les[ID]'>";
-                    }elseif($there['aanwezigheid'] === 0){
+                    }elseif($there['aanwezigheid'] === '0'){
                         echo "<div class='event red' id='$les[ID]'>";
                     }elseif($i == 0) {
                         echo "<div class='event gray' id='$les[ID]'>";
@@ -83,12 +83,15 @@ $arrayLes = [];
             /** when a student clicks on a lesson, the registerbutton will be shown */
         if($_SESSION['rechten'] == 'student'){
             foreach($arrayLes as $array){
-                echo "document.getElementById("."'".$array['ID'] ."'".").onclick = function() {
-                document.getElementById('register').style.display = 'block';
-                document.getElementById('container').style.display = 'none';
-                document.getElementById('lessonname').innerHTML = "."'".$array['name']."'".";
-                document.getElementById('hidden').innerHTML = "."\"<input type='hidden' name='ID' value='".$array['ID']."'>\"".";
-                };";
+                $there = registered($array['ID']);
+                if(!($there['aanwezigheid'] === '0' or $there['aanwezigheid'] === '1')){
+                    echo "document.getElementById(" . "'" . $array['ID'] . "'" . ").onclick = function() {
+                    document.getElementById('register').style.display = 'block';
+                    document.getElementById('container').style.display = 'none';
+                    document.getElementById('lessonname').innerHTML = " . "'" . $array['name'] . "'" . ";
+                    document.getElementById('hidden').innerHTML = " . "\"<input type='hidden' name='ID' value='" . $array['ID'] . "'>\"" . ";
+                    };";
+                }
             }
         }
 ?>

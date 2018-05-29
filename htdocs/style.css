@@ -233,7 +233,6 @@ a {
     height: 400px;
     min-width: 160px;
     border: 1px solid;
-    border-left: none;
 }
 .first-child {
     border-left: 1px solid;
@@ -253,22 +252,23 @@ a {
     overflow-y: auto;
 }
 .event {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 5px;
     border-radius: 5px;
-    padding: 3px;
     color: white;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0px 1px 15px 1px rgba(81, 77, 92, 0.08);
 }
 .title {
     font-size: 12px;
 }
 footer {
-    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     font-size: 11px;
+}
+
+.span {
+    float: right;
 }

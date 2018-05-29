@@ -38,3 +38,29 @@ function getScheduleStu(){
     }
     return $dataArray;
 }
+
+function registerStudent(){
+    $user = unserialize($_SESSION['user']);
+    global $dbh;
+    $stmt = $dbh->prepare("INSERT INTO aanwezigheid(aanwezigheid, tijd, student_ID, les_ID) VALUES(:aanwezigheid, :tijd, :student_ID, :les_ID)");
+    $values = array(
+        'aanwezigheid' => '1',
+        'tijd' => date("Y-m-d-h-i-s"),
+        'student_ID' => $user->ID,
+        'les_ID' => $_POST['ID']
+    );
+    $stmt->execute($values);
+}
+
+function registered($id){
+    $user = unserialize($_SESSION['user']);
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT aanwezigheid FROM aanwezigheid WHERE student_ID=:student_ID AND les_ID=:les_ID");
+    $values = array(
+        'student_ID' => $user->ID,
+        'les_ID' => $id
+    );
+    $stmt->execute($values);
+    $trueFalse = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $trueFalse;
+}

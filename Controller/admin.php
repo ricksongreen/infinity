@@ -10,6 +10,7 @@ function addForm() {
     require_once APP_PATH . '/Views/admin/registration.php';
 }
 
+/** uses the information given at the registration form to create a user and set him in the database */
 function add() {
     $user = $_POST;
 
@@ -17,9 +18,7 @@ function add() {
 
     addUser($user);
 
-    echo "<div class=\"container\">
-        <h1>User aangemaakt</h1>
-        </div>";
+    echo "<div class='container'><h1>Gebruiker aangemaakt</h1></div>";
 }
 
 function showUsers() {
@@ -61,6 +60,8 @@ function addClass(){
     makeClass($_POST);
 }
 
+
+/**  */
 function addLesson(){
     makeLesson($_POST);
 }

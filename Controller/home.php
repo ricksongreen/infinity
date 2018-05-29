@@ -6,6 +6,8 @@
  */
 include_once(APP_PATH. '/Model/Classes/User.php');
 include_once(APP_PATH. '/Model/teacher.php');
+include_once(APP_PATH. '/Model/student.php');
+
 //login page
 function loginform() {
     require_once APP_PATH . '/Views/login.php';
@@ -27,4 +29,9 @@ function error(){
 
 function homepage(){
     require_once APP_PATH . '/Views/homepage.php';
+}
+
+function register(){
+    registerStudent();
+    header('Location: index.php');
 }

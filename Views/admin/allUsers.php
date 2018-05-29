@@ -37,6 +37,7 @@
         input[type=text]:focus {
             width: 100%;
         }
+
     </style>
 </head>
 
@@ -68,7 +69,7 @@
             <td><?php echo $user['voornaam'] ?></td>
             <td><?php echo $user['tussenvoegsel'] ?></td>
             <td><?php echo $user['achternaam'] ?></td>
-            <td><a href="index.php?controller=admin&action=delete&id=<?php echo $user['ID']; ?>">verwijderen
+            <td><a href="index.php?controller=admin&action=delete&id=<?php echo $user['ID']; ?>"><img src="resources/delete.png" width="25px" height="25px" >
             </td>
         </tr>
     <?php } ?>

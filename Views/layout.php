@@ -13,7 +13,7 @@
     <title>Infinity</title>
     <style>
         html {
-            font-family: Arial;
+            font-family: Arial, Helvetica, sans-serif;
         }
         div.navbar a
         {

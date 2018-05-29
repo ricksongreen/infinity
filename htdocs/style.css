@@ -208,16 +208,47 @@ a {
 }
 
 
-.green { background-color: #2ecc71; }
-.turquoise { background-color: #1abc9c; }
-.navy { background-color: #34495e; }
-.blue { background-color: #3498db; }
-.purple { background-color: #9b59b6; }
-.grey { background-color: #bdc3c7; color: #202020; }
-.gray { background-color: #7f8c8d; }
-.red { background-color: #e74c3c; }
-.orange { background-color: #f39c12; }
-.yellow { background-color: #f1c40f; color: #303030; }
+.green {
+    background-color: #2ecc71;
+}
+
+.turquoise {
+    background-color: #1abc9c;
+}
+
+.navy {
+    background-color: #34495e;
+}
+
+.blue {
+    background-color: #3498db;
+}
+
+.purple {
+    background-color: #9b59b6;
+}
+
+.grey {
+    background-color: #bdc3c7;
+    color: #202020;
+}
+
+.gray {
+    background-color: #7f8c8d;
+}
+
+.red {
+    background-color: #e74c3c;
+}
+
+.orange {
+    background-color: #f39c12;
+}
+
+.yellow {
+    background-color: #f1c40f;
+    color: #303030;
+}
 
 .day-columns {
     display: flex;
@@ -226,6 +257,7 @@ a {
     overflow-x: auto;
     justify-content: center;
 }
+
 .day-column {
     display: flex;
     flex: 1;
@@ -234,9 +266,11 @@ a {
     min-width: 160px;
     border: 1px solid;
 }
+
 .first-child {
     border-left: 1px solid;
 }
+
 .day-header {
     border-bottom: 1px solid ;
     text-align: center;
@@ -244,6 +278,7 @@ a {
     min-width: 350px;
 
 }
+
 .day-content {
     flex-grow: 1;
     flex-direction: column;
@@ -251,6 +286,7 @@ a {
     padding: 5px;
     overflow-y: auto;
 }
+
 .event {
     flex-direction: column;
     justify-content: flex-start;
@@ -260,9 +296,11 @@ a {
     padding: 10px;
     box-shadow: 0px 1px 15px 1px rgba(81, 77, 92, 0.08);
 }
+
 .title {
     font-size: 12px;
 }
+
 footer {
     flex-direction: row;
     justify-content: space-evenly;

@@ -156,7 +156,7 @@ h1 {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=time], input[type=date] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;

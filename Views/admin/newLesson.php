@@ -12,17 +12,31 @@ require_once APP_PATH . '/Model/admin.php';
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css"
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#datepicker").datepicker();
+        });
+    </script>
 </head>
 <body>
 <form method="post" action="index.php?controller=admin&action=addLesson">
     <div class="container">
         <h1>Les Aanmaken</h1>
-            <b>Naam</b> <input type="text" name="name" required><br>
-            <b>Locatie</b> <input type="text" name="location" required><br>
-            <b>Datum</b> <input type="date" name="date" required><br>
-            <b>Starttijd</b> <input type="time" name="startTime" required><br>
-            <b>Eindtijd</b> <input type="time" name="endTime" required><br>
+            <b>Naam</b> <input type="text" name="name" required placeholder="Naam invoeren"><br>
+            <b>Locatie</b> <input type="text" name="location" required placeholder="Locatie invoeren"><br>
+            <b>Datum</b>
+                <form>
+                    <input id="datepicker" type="date" name="date" placeholder="Kies hier uw datumm"/>
+                </form><br>
+<!--        <input type="date" name="date" required><br>-->
+
+            <b>Starttijd</b> <input type="time" name="startTime" required placeholder="Starttijd"><br>
+            <b>Eindtijd</b> <input type="time" name="endTime" required placeholder="Eindtijd"><br>
             <select name="class" size="1">
                 <?php
                 $classes = getAllClasses();

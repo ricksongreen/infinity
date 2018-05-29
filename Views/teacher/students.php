@@ -14,7 +14,7 @@ require_once APP_PATH . '/Model/teacher.php';
 
 </head>
 <body>
-<form method="post" >
+<form method="post">
     <select name="class" size="1">
         <?php
         $classes = getAllClasses();
@@ -28,7 +28,7 @@ require_once APP_PATH . '/Model/teacher.php';
     <input type="submit" value="Zoeken">
 </form>
 
-<table>
+<table class="customers">
     <tr>
         <th>
             Nummer
@@ -42,9 +42,17 @@ require_once APP_PATH . '/Model/teacher.php';
     </tr>
 
     <?php
-    $students = getStudentsFromClass($_POST['class']);
+    if(!empty($_POST['class'])) {
+        $students = getStudentsFromClass($_POST['class']);
+    }else{
+        $students = getStudentsFromClass(1);
+    }
     foreach($students as $student){
-
+        $tussenvoegsel = "";
+        if(!empty($student['tussenvoegsel'])) {
+            $tussenvoegsel = $student['tussenvoegsel'] . " ";
+            }
+        echo "<tr><td>" . $student['nummer'] . "</td><td>" . $student['voornaam'] . " " . $tussenvoegsel . $student['achternaam'] . "</td><td>" . "</td></tr>";
     }
     ?>
 </table>

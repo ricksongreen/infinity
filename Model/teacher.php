@@ -16,6 +16,7 @@ function getStudentsFromClass($class){
     );
     $stmt->execute($values);
     $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $studentArray = [];
     /** retrieves the name of the student via the ID which was found in the last call to the database and sets it together in one array*/
     foreach($students as $student){
         $stmt = $dbh->prepare("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE ID =:ID");

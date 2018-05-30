@@ -33,7 +33,8 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage', 'register'),
     'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm'),
-    'teacher' => array('showClass')
+    'teacher' => array('showClass'),
+    'SB' => array('percentageStudents')
 );
 
 
@@ -48,7 +49,9 @@ if (isAdmin()) {
 // if someone tries to access something else (s)he will be redirected to the error action of the pages controller
 if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'error');
-} else if (!in_array($action, $allowedControllers[$controller])) {
+} else if($_SESSION['ingelogd'] !== true and $action !== 'loginhandler') {
+    call('home', 'loginform');
+}else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');
 } else if (in_array($action, $allowedControllers['admin']) and isAdmin() == false) {
     if($_SESSION['ingelogd'] == true){

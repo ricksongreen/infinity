@@ -67,3 +67,7 @@ function addLesson(){
 function addLessonForm(){
     require_once APP_PATH . '/Views/admin/newLesson.php';
 }
+
+function showLessons(){
+    require_once APP_PATH . '/Views/admin/lessonList.php';
+}

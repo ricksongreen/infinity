@@ -19,6 +19,7 @@ require_once APP_PATH . '/Model/admin.php';
             <b>Klasnaam</b> <input type="text" name="klasnaam" required><br>
             <select name="students[]" size="20" multiple>
                 <?php
+                /** creates a list with all the classless students based on the information retrieved with the function 'getAllClasslessStudents()' */
                 $students = getAllClasslessStudents();
                 foreach($students as $student){
                     $ID = $student['ID'];

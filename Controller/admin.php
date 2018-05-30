@@ -21,6 +21,7 @@ function add() {
     header('Location:index.php?controller=admin&action=showUsers');
 }
 
+/** retrieves the users from the database and displays them */
 function showUsers() {
     $users = getAllUsers();
 
@@ -37,14 +38,10 @@ function search() {
     require_once APP_PATH . '/Views/admin/allUsers.php';
 }
 
+/** deletes the user from the userlist and redirects to the same page to refresh */
 function delete() {
     deleteUser($_GET['id']);
-
-    echo "<div class=\"container\">
-        <h1>User verwijderd</h1>
-        </div>";
-   // showall();
-
+    header('Location:index.php?controller=admin&action=showUsers');
 }
 
 /** redirects to the form which lets the admins create a class */
@@ -61,11 +58,12 @@ function addClass(){
 }
 
 
-/**  */
+/** makes a lesson with the information given in the form */
 function addLesson(){
     makeLesson($_POST);
 }
 
+/** displays the form needed to create a lesson */
 function addLessonForm(){
     require_once APP_PATH . '/Views/admin/newLesson.php';
 }

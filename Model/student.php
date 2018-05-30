@@ -39,6 +39,8 @@ function getScheduleStu(){
     return $dataArray;
 }
 
+/** this function checks if the student is still within 5 minutes of the beginning of the lesson to be able to register.
+ * It then puts the given information about the student's presence in the database */
 function registerStudent(){
     $user = unserialize($_SESSION['user']);
     $start = new DateTime($_POST['startTime']);
@@ -61,6 +63,8 @@ function registerStudent(){
     $stmt->execute($values);
 }
 
+/** to retrieve the information about whether a student has already registered, the ID's of the lesson and student will be compared.
+ *  since the lesson ID is unique, it will only show it's available when there is data in the database*/
 function registered($id){
     $user = unserialize($_SESSION['user']);
     global $dbh;

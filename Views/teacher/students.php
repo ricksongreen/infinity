@@ -17,6 +17,7 @@ require_once APP_PATH . '/Model/teacher.php';
 <form method="post">
     <select name="class" size="1">
         <?php
+        /** option list to get the classes */
         $classes = getAllClasses();
         foreach($classes as $class){
             $ID = $class['ID'];
@@ -42,6 +43,7 @@ require_once APP_PATH . '/Model/teacher.php';
     </tr>
 
     <?php
+    /** creates a table bases on the students of the class */
     if(!empty($_POST['class'])) {
         $students = getStudentsFromClass($_POST['class']);
     }else{

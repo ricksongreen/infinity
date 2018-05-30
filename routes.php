@@ -47,7 +47,7 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 //NOTE: ACTIONS MAY NOT BE THE SAME FOR ADMIN, TEACHER OR SB
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage', 'register'),
-    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showClassAD'),
+    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons', 'showClassAD'),
     'teacher' => array('showClass'),
     'SB' => array('percentageStudents', 'showClassSB')
 );

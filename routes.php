@@ -16,7 +16,21 @@ function call($controller, $action) {
 // if the user logs in as a systemowner
 function isAdmin() {
     if($_SESSION['rechten'] == 'admin' or $_SESSION['rechten'] == 'slbadmin'){
-    return true;
+        return true;
+    }
+}
+
+// checks if a user is a teacher
+function isTeacher() {
+    if($_SESSION['rechten'] == 'docent'){
+        return true;
+    }
+}
+
+// checks if a user is a SB
+function isSB(){
+    if($_SESSION['rechten'] == 'slb' or $_SESSION['rechten'] =='slbadmin'){
+        return true;
     }
 }
 
@@ -30,20 +44,13 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 }
 
 // a list of the controllers we have and their actions we consider "allowed" values
+//NOTE: ACTIONS MAY NOT BE THE SAME FOR ADMIN, TEACHER OR SB
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage', 'register'),
-    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons'),
+    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons', 'showClassAD'),
     'teacher' => array('showClass'),
-    'SB' => array('percentageStudents')
+    'SB' => array('percentageStudents', 'showClassSB')
 );
-
-
-// allow extra controller when user is logged in as admin(systemowner)
-if (isAdmin()) {
-    $allowedControllers['admin/rooster'] = array (
-        'delete', 'add', 'change'
-    );
-}
 
 // check that the requested controller and action are both allowed
 // if someone tries to access something else (s)he will be redirected to the error action of the pages controller
@@ -53,8 +60,10 @@ if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'loginform');
 }else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');
-} else if (in_array($action, $allowedControllers['admin']) and isAdmin() == false) {
-    if($_SESSION['ingelogd'] == true){
+} else if ((in_array($action, $allowedControllers['admin']) and isAdmin() == false) or
+    (in_array($action, $allowedControllers['teacher']) and isTeacher() == false) or
+    (in_array($action, $allowedControllers['SB']) and isSB() == false)){
+    if($_SESSION['ingelogd'] === true){
         header('Location: index.php?controller=home&action=homepage');
     }else {
         header('/index.php?controller=home&action=loginform');

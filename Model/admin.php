@@ -189,7 +189,7 @@ function makeLesson($data){
 
 function getAllLessons(){
     global $dbh;
-    $stmt = $dbh->query("SELECT * FROM lessen");
+    $stmt = $dbh->query("SELECT * FROM lessen ORDER BY naam, datum");
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $biggerArray = [];
     foreach($data as $smallerData) {

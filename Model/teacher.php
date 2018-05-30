@@ -49,6 +49,7 @@ function getScheduleTea(){
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     /** gets the class name instead of the ID */
+    $dataArray = [];
     foreach($data as $da){
         $stmt = $dbh->prepare("SELECT naam FROM klas WHERE ID = :ID");
         $value = array (

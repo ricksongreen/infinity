@@ -18,7 +18,7 @@ function add() {
 
     addUser($user);
 
-    echo "<div class='container'><h1>Gebruiker aangemaakt</h1></div>";
+    header('Location:index.php?controller=admin&action=showUsers');
 }
 
 function showUsers() {

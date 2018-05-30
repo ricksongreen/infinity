@@ -241,8 +241,16 @@ a {
     background-color: #e74c3c;
 }
 
+.redopaque {
+    background-color: rgba(231, 76, 60, 0.6);
+}
+
 .orange {
     background-color: #f39c12;
+}
+
+.orangeopaque {
+    background-color: rgba(243, 156, 18, 0.6);
 }
 
 .yellow {

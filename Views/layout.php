@@ -114,8 +114,11 @@
         if($_SESSION["rechten"] == 'slb'){
             echo "<li> <a href='index.php?controller=SB&action=showClassSB'>Klassenlijst</a>";
         }
-        if($_SESSION["rechten"] == 'slb'){
+        if($_SESSION["rechten"] == 'slb' or $_SESSION["rechten"] == 'slbadmin'){
             echo "<li><a href='index.php?controller=SB&action=percentageStudents'>Studenten</a></li>";
+        }
+        if($_SESSION["rechten"] == 'student'){
+            echo "<li><a href='index.php?controller=student&action=showStats'>Aanwezigheid</a></li>";
         }
         echo "<li style='float:right'> <a href='index.php?controller=home&action=logout'>Log out</a>";
         echo "<li style=\"float:right\"><a  href='index.php?controller=home&action=homepage'>T08 Infinity</a>";

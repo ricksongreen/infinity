@@ -34,6 +34,13 @@ function isSB(){
     }
 }
 
+//checks if a user is a student
+function isStudent(){
+    if($_SESSION['rechten'] == 'student'){
+        return true;
+    }
+}
+
 // check if the controller and action are set, otherwise fall back to default controller and action
 if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = $_GET['controller'];
@@ -47,9 +54,10 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 //NOTE: ACTIONS MAY NOT BE THE SAME FOR ADMIN, TEACHER OR SB
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage', 'register'),
+    'student' => array('register', 'showStats'),
     'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons', 'showClassAD'),
     'teacher' => array('showClass'),
-    'SB' => array('percentageStudents', 'showClassSB')
+    'SB' => array('percentageStudents', 'showClassSB', 'showStatsSB')
 );
 
 // check that the requested controller and action are both allowed
@@ -62,7 +70,8 @@ if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'error');
 } else if ((in_array($action, $allowedControllers['admin']) and isAdmin() == false) or
     (in_array($action, $allowedControllers['teacher']) and isTeacher() == false) or
-    (in_array($action, $allowedControllers['SB']) and isSB() == false)){
+    (in_array($action, $allowedControllers['SB']) and isSB() == false) or
+    (in_array($action, $allowedControllers['student']) and isStudent() == false)){
     if($_SESSION['ingelogd'] === true){
         header('Location: index.php?controller=home&action=homepage');
     }else {

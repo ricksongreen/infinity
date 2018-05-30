@@ -26,15 +26,15 @@ function getScheduleStu(){
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     /** gets the nummers of the teachers instead of the ID */
-    foreach($data as $da){
+    foreach($data as $smallerData){
         $stmt = $dbh->prepare("SELECT nummer FROM werknemer WHERE ID = :ID");
         $value = array (
-            'ID' => $da['docent_ID']
+            'ID' => $smallerData['docent_ID']
         );
         $stmt->execute($value);
         $array = $stmt->fetch();
-        $da['nummer'] = $array['nummer'];
-        $dataArray[] = $da;
+        $smallerData['nummer'] = $array['nummer'];
+        $dataArray[] = $smallerData;
     }
     return $dataArray;
 }
@@ -78,6 +78,24 @@ function registered($id){
     return $trueFalse;
 }
 
-function timeConvert(){
-
+function presenceLesson($id){
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT aanwezigheid, les_ID FROM aanwezigheid WHERE student_ID=:student_ID");
+    $values = array('student_ID' => $id);
+    $stmt->execute($values);
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    foreach($data as $smallerData){
+        $stmt = $dbh->prepare("SELECT naam, datum, docent_ID FROM lessen WHERE ID=:les_ID ORDER BY datum");
+        $value = array('les_ID' => $smallerData['les_ID']);
+        $stmt->execute($value);
+        $output = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $dbh->prepare("SELECT nummer FROM werknemer WHERE ID=:docent_ID");
+        $value = array('docent_ID' => $output['docent_ID']);
+        $stmt->execute($value);
+        $docent_ID = $stmt->fetch(PDO::FETCH_ASSOC);
+        $output['nummer'] = $docent_ID['nummer'];
+        $output['aanwezigheid'] = $smallerData['aanwezigheid'];
+        $return[] = $output;
+    }
+    return $return;
 }

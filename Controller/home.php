@@ -34,9 +34,3 @@ function error(){
 function homepage(){
     require_once APP_PATH . '/Views/homepage.php';
 }
-
-/** registers the user and refreshes the page */
-function register(){
-    registerStudent();
-    header('Location: index.php');
-}

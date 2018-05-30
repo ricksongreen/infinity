@@ -103,6 +103,7 @@
             echo "<li><a href='index.php?controller=admin&action=showUsers'>Gebruikerslijst</a></li>";
             echo "<li><a href='index.php?controller=admin&action=addClassForm'>Klassen Aanmaken</a></li>";
             echo "<li><a href='index.php?controller=admin&action=addLessonForm'>Les Aanmaken</a></li>";
+            echo "<li><a href='index.php?controller=admin&action=showLessons'>Lessen</a></li>";
         }
         if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
             echo "<li> <a href='index.php?controller=admin&action=showClassAD'>Klassenlijst</a>";

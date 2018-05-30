@@ -67,3 +67,8 @@ function addLesson(){
 function addLessonForm(){
     require_once APP_PATH . '/Views/admin/newLesson.php';
 }
+
+/** shows the classlist */
+function showClassAD(){
+    require_once APP_PATH . '/Views/teacher/students.php';
+}

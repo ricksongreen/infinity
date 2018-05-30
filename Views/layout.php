@@ -104,8 +104,17 @@
             echo "<li><a href='index.php?controller=admin&action=addClassForm'>Klassen Aanmaken</a></li>";
             echo "<li><a href='index.php?controller=admin&action=addLessonForm'>Les Aanmaken</a></li>";
         }
-        if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin' or $_SESSION["rechten"] == 'docent' or $_SESSION["rechten"] == 'slb'){
+        if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
+            echo "<li> <a href='index.php?controller=admin&action=showClassAD'>Klassenlijst</a>";
+        }
+        if($_SESSION["rechten"] == 'docent'){
             echo "<li> <a href='index.php?controller=teacher&action=showClass'>Klassenlijst</a>";
+        }
+        if($_SESSION["rechten"] == 'slb'){
+            echo "<li> <a href='index.php?controller=SB&action=showClassSB'>Klassenlijst</a>";
+        }
+        if($_SESSION["rechten"] == 'slb'){
+            echo "<li><a href='index.php?controller=SB&action=percentageStudents'>Studenten</a></li>";
         }
         echo "<li style='float:right'> <a href='index.php?controller=home&action=logout'>Log out</a>";
         echo "<li style=\"float:right\"><a  href='index.php?controller=home&action=homepage'>T08 Infinity</a>";

@@ -36,11 +36,16 @@ require_once APP_PATH . '/Model/SB.php';
         }else{
             $percentage = "-";
         }
+        if($percentage < 60){
+            $text = "<td class=red>";
+        }else{
+            $text = "<td>";
+        }
         $tussenvoegsel = "";
         if(!empty($student['tussenvoegsel'])) {
             $tussenvoegsel = $student['tussenvoegsel'] . " ";
             }
-        echo "<tr><td>" . $student['nummer'] . "</td><td>" . $student['voornaam'] . " " . $tussenvoegsel . $student['achternaam'] . "</td><td>" . $percentage . "</td></tr>";
+        echo "<tr><td>" . $student['nummer'] . "</td><td>" . $student['voornaam'] . " " . $tussenvoegsel . $student['achternaam'] . "</td>" . $text . $percentage . "</td></tr>";
     }
     ?>
 </table>

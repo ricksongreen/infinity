@@ -23,9 +23,9 @@ class User{
         $realpassword = $stmt->fetch();
 
         if(!isset($realpassword['wachtwoord'])){
-            header('Location: index.php');
+            header('Location: index.php?error=2');
         }elseif(password_verify($pass, $realpassword['wachtwoord']) == false){
-            header('Location: index.php');
+            header('Location: index.php?error=1');
         }else{
             $this->getRights();
             $_SESSION['ingelogd'] = true;

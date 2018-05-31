@@ -32,13 +32,13 @@ require_once APP_PATH . '/Model/teacher.php';
 <table class="customers">
     <tr>
         <th>
+
+        </th>
+        <th>
             Nummer
         </th>
         <th>
             Naam
-        </th>
-        <th>
-            Aanwezigheid
         </th>
     </tr>
 
@@ -54,7 +54,7 @@ require_once APP_PATH . '/Model/teacher.php';
         if(!empty($student['tussenvoegsel'])) {
             $tussenvoegsel = $student['tussenvoegsel'] . " ";
             }
-        echo "<tr><td>" . $student['nummer'] . "</td><td>" . $student['voornaam'] . " " . $tussenvoegsel . $student['achternaam'] . "</td><td>" . "</td></tr>";
+        echo "<tr><td></td><td>" . $student['nummer'] . "</td><td>" . $student['voornaam'] . " " . $tussenvoegsel . $student['achternaam'] . "</td></tr>";
     }
     ?>
 </table>

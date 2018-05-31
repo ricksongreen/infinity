@@ -44,16 +44,12 @@
 <body>
 <h1>Gebruikers</h1>
 
-<!--<form action="index.php?controller=admin&action=search" method="POST">-->
-<!--    <input type= "text" name="query">-->
-<!--    <input type= "submit" value="Search">-->
-<!--</form>-->
-
 <form action="index.php?controller=admin&action=search" method="POST">
-    <input type="text" name="query" placeholder="Zoek..">
+    <input type="text" name="query" id="myInput" onkeyup="myFunction()" placeholder="Zoek..." title="Type in a name">
 </form>
 
-<table id="customers" class="customers">
+
+    <table id="customers" class="customers">
     <thead>
     <tr>
         <th>Gebruikersnaam</th>
@@ -75,6 +71,25 @@
         </tr>
     <?php } ?>
 </table>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("customers");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </body>
 </div>
 </html>

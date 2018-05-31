@@ -15,6 +15,8 @@ if($_SESSION['ingelogd'] == true){
 
 </head>
 <body>
+<h1 id="error1" style="display:none">Deze gebruiker staat niet in onze database!</h1>
+<h1 id="error2" style="display:none">Ingevuld wachtwoord onjuist!</h1>
 <div class="loginbox">
     <img src="resources/avatar1.jpg" class="avatar">
     <h1>Login</h1>
@@ -28,6 +30,15 @@ if($_SESSION['ingelogd'] == true){
 </div>
 
 
-
+<script>
+    <?php
+    /** when a student clicks on a lesson, the registerbutton will be shown */
+    if($_GET['error'] === '2'){
+        echo "document.getElementById('error1').style.display = 'block';";
+    }elseif($_GET['error'] === '1'){
+        echo "document.getElementById('error2').style.display = 'block';";
+    }
+    ?>
+</script>
 </body>
 </html>

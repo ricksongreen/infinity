@@ -35,10 +35,10 @@ $arrayLes = [];
 <div id="container" class="container">
     <div class="day-column">
         <div class="day-header">Vandaag</div>
-            <div class="day-content">
-                <?php
-                $i = 0;
-                if(!empty($lessen)){
+        <div class="day-content">
+            <?php
+            $i = 0;
+            if(!empty($lessen)){
                 foreach($lessen as $les){
                     /** $there will store the retrieved information about wether the lesson has been registered for already
                      * If that is the case, the lessons will be marked red or green which corresponds with the given presence*/
@@ -69,12 +69,12 @@ $arrayLes = [];
                     /** stores the ID and lessonname and starttime in an array */
                     $smallerArray = array('ID' => $les['ID'], 'name' => $les['naam'], 'startTime' => $les['begintijd']);
                     $arrayLes[] = $smallerArray;
-                }}else{
-                    /** this will be shown when there are no lessons for the day */
-                    echo "<div class='event red'><span>Er zijn voor vandaag geen lessen voor u gepland</span></div>";
                 }
-                ?>
-            </div>
+            }else{
+                /** this will be shown when there are no lessons for the day */
+                echo "<div class='event red'><span>Er zijn voor vandaag geen lessen voor u gepland</span></div>";
+            }
+            ?>
         </div>
     </div>
 </div>

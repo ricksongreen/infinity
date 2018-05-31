@@ -18,13 +18,13 @@ require_once APP_PATH . '/Model/admin.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 
+
 </head>
 <body>
 <form method="post" action="index.php?controller=admin&action=addLesson">
     <div class="container">
         <h1>Les Aanmaken</h1>
             <b>Naam</b> <input type="text" name="name" required placeholder="Naam invoeren"><br>
-            <b>Locatie</b> <input type="text" name="location" required placeholder="Locatie invoeren"><br>
             <b>Datum</b> <input id="datepicker" type="date" name="date" required placeholder="Datum invoeren"><br>
             <b>Starttijd</b> <input type="time" name="startTime" required placeholder="Starttijd"><br>
             <b>Eindtijd</b> <input type="time" name="endTime" required placeholder="Eindtijd"><br>
@@ -49,7 +49,21 @@ require_once APP_PATH . '/Model/admin.php';
                     echo "<option value=$ID>$number</option>";
                 }
                 ?>
-            </select>
+            </select><br><br>
+        <b>Locatie</b><br><br>  <select name="location">
+            <option selected="selected">ÀL.54</option>
+            <?php
+            // A sample location array
+            $Location = array("AL.40", "AL4.44", "AL5.42", "AL8.39a" , "Al9.42", "Alnovum");
+
+            // Iterating through the location array
+            foreach($Location as $Locatie){
+                ?>
+                <option value="<?php echo strtolower($Locatie); ?>"><?php echo $Locatie; ?></option>
+                <?php
+            }
+            ?>
+        </select><br><br>
             <input type="submit" value="Verstuur" class="registerbtn">
     </div>
 </form>

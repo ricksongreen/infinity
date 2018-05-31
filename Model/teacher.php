@@ -45,15 +45,53 @@ function getScheduleTea(){
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     /** gets the class name instead of the ID */
     $dataArray = [];
-    foreach($data as $da){
+    foreach($data as $smallerData){
         $stmt = $dbh->prepare("SELECT naam FROM klas WHERE ID = :ID");
         $value = array (
-            'ID' => $da['klas_ID']
+            'ID' => $smallerData['klas_ID']
         );
         $stmt->execute($value);
         $array = $stmt->fetch();
-        $da['klas'] = $array['naam'];
-        $dataArray[] = $da;
+        $smallerData['klas'] = $array['naam'];
+        $dataArray[] = $smallerData;
     }
     return $dataArray;
+}
+
+function getLessons(){
+    $user = unserialize($_SESSION['user']);
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM lessen WHERE docent_ID =:docent_ID and datum < CURRENT_DATE ");
+    $value = array('docent_ID' => $user->ID);
+    $stmt->execute($value);
+    $lessons = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $lessonsClass = [];
+    foreach($lessons as $lesson){
+        $stmt = $dbh->prepare('SELECT naam FROM klas WHERE ID=:klas_ID');
+        $value = array('klas_ID' => $lesson['klas_ID']);
+        $stmt->execute($value);
+        $array = $stmt->fetch(PDO::FETCH_ASSOC);
+        $lesson['klasnaam'] = $array['naam'];
+        $lessonsClass[] = $lesson;
+    }
+    return $lessonsClass;
+}
+
+function getPresence($lesson_ID){
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM aanwezigheid WHERE les_ID=:les_ID");
+    $value = array('les_ID' => $lesson_ID);
+    $stmt->execute($value);
+    $presence = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $total = 0;
+    $there = 0;
+    foreach($presence as $present) {
+        if ($present['aanwezigheid'] === '1') {
+            $there++;
+        }
+        $total++;
+    }
+    $percentage = round(($there / $total) * 100);
+    $text = $percentage . "%";
+    return $text;
 }

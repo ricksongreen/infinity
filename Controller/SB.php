@@ -20,3 +20,7 @@ function showClassSB(){
 function showStatsSB(){
     require_once APP_PATH . '/Views/student/stats.php';
 }
+
+function showLessonsPerSB(){
+    require_once APP_PATH . '/Views/teacher/lessons.php';
+}

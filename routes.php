@@ -55,9 +55,9 @@ if (isset($_GET['controller']) && isset($_GET['action'])) {
 $allowedControllers = array(
     'home' => array ('loginform', 'loginhandler', 'logout', 'homepage', 'register'),
     'student' => array('register', 'showStats'),
-    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons', 'showClassAD'),
-    'teacher' => array('showClass'),
-    'SB' => array('percentageStudents', 'showClassSB', 'showStatsSB')
+    'admin' => array('addForm', 'add', 'showUsers', 'search', 'delete', 'addClass', 'addClassForm', 'addLesson', 'addLessonForm', 'showLessons', 'showClassAD', 'showLessonsPerAD'),
+    'teacher' => array('showClass', 'showLessonsPer'),
+    'SB' => array('percentageStudents', 'showClassSB', 'showStatsSB', 'showLessonsPerSB')
 );
 
 // check that the requested controller and action are both allowed

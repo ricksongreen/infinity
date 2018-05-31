@@ -103,16 +103,19 @@
             echo "<li><a href='index.php?controller=admin&action=showUsers'>Gebruikerslijst</a></li>";
             echo "<li><a href='index.php?controller=admin&action=addClassForm'>Klassen Aanmaken</a></li>";
             echo "<li><a href='index.php?controller=admin&action=addLessonForm'>Les Aanmaken</a></li>";
-            echo "<li><a href='index.php?controller=admin&action=showLessons'>Lessen</a></li>";
+            echo "<li><a href='index.php?controller=admin&action=showLessons'>Lessenlijst</a></li>";
         }
         if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
-            echo "<li> <a href='index.php?controller=admin&action=showClassAD'>Klassenlijst</a>";
+            echo "<li> <a href='index.php?controller=admin&action=showClassAD'>Klassenlijst</a></li>";
+            echo "<li> <a href='index.php?controller=admin&action=showLessonsPerAD'>Presentie Lessen</a></li>";
         }
         if($_SESSION["rechten"] == 'docent'){
-            echo "<li> <a href='index.php?controller=teacher&action=showClass'>Klassenlijst</a>";
+            echo "<li> <a href='index.php?controller=teacher&action=showClass'>Klassenlijst</a></li>";
+            echo "<li> <a href='index.php?controller=teacher&action=showLessonsPer'>Presentie Lessen</a></li>";
         }
         if($_SESSION["rechten"] == 'slb'){
-            echo "<li> <a href='index.php?controller=SB&action=showClassSB'>Klassenlijst</a>";
+            echo "<li> <a href='index.php?controller=SB&action=showClassSB'>Klassenlijst</a></li>";
+            echo "<li> <a href='index.php?controller=SB&action=showLessonsPerSB'>Presentie Lessen</a></li>";
         }
         if($_SESSION["rechten"] == 'slb' or $_SESSION["rechten"] == 'slbadmin'){
             echo "<li><a href='index.php?controller=SB&action=percentageStudents'>Studenten</a></li>";
@@ -120,8 +123,8 @@
         if($_SESSION["rechten"] == 'student'){
             echo "<li><a href='index.php?controller=student&action=showStats'>Aanwezigheid</a></li>";
         }
-        echo "<li style='float:right'> <a href='index.php?controller=home&action=logout'>Log out</a>";
-        echo "<li style=\"float:right\"><a  href='index.php?controller=home&action=homepage'>T08 Infinity</a>";
+        echo "<li style='float:right'> <a href='index.php?controller=home&action=logout'>Log out</a></li>";
+        echo "<li style=\"float:right\"><a  href='index.php?controller=home&action=homepage'>T08 Infinity</a></li>";
     } ?>
     </ul>
 </div>

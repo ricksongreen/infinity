@@ -78,3 +78,7 @@ function showLessons(){
 function showClassAD(){
     require_once APP_PATH . '/Views/teacher/students.php';
 }
+
+function showLessonsPerAD(){
+    require_once APP_PATH . '/Views/teacher/lessons.php';
+}

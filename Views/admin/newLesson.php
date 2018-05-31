@@ -54,12 +54,12 @@ require_once APP_PATH . '/Model/admin.php';
             <option selected="selected">ÀL.54</option>
             <?php
             // A sample location array
-            $Location = array("AL.40", "AL4.44", "AL5.42", "AL8.39a" , "Al9.42", "Alnovum");
+            $Location = array("AL1.40", "AL4.44", "AL5.42", "AL8.39a" , "AL9.42", "Alnovum");
 
             // Iterating through the location array
             foreach($Location as $Locatie){
                 ?>
-                <option value="<?php echo strtolower($Locatie); ?>"><?php echo $Locatie; ?></option>
+                <option value="<?php echo $Locatie; ?>"><?php echo $Locatie; ?></option>
                 <?php
             }
             ?>

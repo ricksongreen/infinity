@@ -23,8 +23,10 @@ class User{
         $realpassword = $stmt->fetch();
 
         if(!isset($realpassword['wachtwoord'])){
+            //gives error code with to show on the loginpage : User does not exist
             header('Location: index.php?error=2');
         }elseif(password_verify($pass, $realpassword['wachtwoord']) == false){
+            //gives error code with to show on the loginpage : Password incorrect
             header('Location: index.php?error=1');
         }else{
             $this->getRights();

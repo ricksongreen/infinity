@@ -16,7 +16,3 @@ try {
 }catch(PDOException $exception){
     die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
 }
-
-
-//$message = $dbh->query("Select * FROM gebruiker");
-//print_r($message);

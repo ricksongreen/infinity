@@ -187,11 +187,14 @@ function makeLesson($data){
     $stmt->execute($values);
 }
 
+
 function getAllLessons(){
     global $dbh;
+    /** retrieves all the information of the lessons */
     $stmt = $dbh->query("SELECT * FROM lessen ORDER BY naam, datum");
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $biggerArray = [];
+    /** for each lessen the classname and teachernumber gets retrieves from the database based on the ID's given in the lesson data */
     foreach($data as $smallerData) {
         $array = $smallerData;
         $stmt = $dbh->prepare("SELECT naam FROM klas WHERE ID=:klas_ID");

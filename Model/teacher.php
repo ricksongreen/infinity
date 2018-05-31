@@ -31,11 +31,6 @@ function getStudentsFromClass($class){
     return $studentArray;
 }
 
-function getSomeClasses(){
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT ID, naam FROM klas WHERE something");
-}
-
 /** uses the $_SESSION variable user to get the ID which can be used to get the lessons which are connected to the teacher
  * @return array with information of the schedule of the teacher */
 function getScheduleTea(){

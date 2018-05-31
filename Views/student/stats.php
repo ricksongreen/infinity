@@ -8,6 +8,7 @@
 require_once APP_PATH . '/Model/Classes/User.php';
 require_once APP_PATH . '/Model/student.php';
 
+/** retrieves the student ID, from the class user if its the student who wants to see its information */
 if($_SESSION['rechten'] == 'student'){
     $user = unserialize($_SESSION['user']);
     $ID = $user->ID;

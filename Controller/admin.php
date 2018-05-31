@@ -61,6 +61,7 @@ function addClass(){
 /** makes a lesson with the information given in the form */
 function addLesson(){
     makeLesson($_POST);
+    require_once APP_PATH . '/Views/admin/lessonList.php';
 }
 
 /** displays the form needed to create a lesson */

@@ -28,7 +28,8 @@ require_once APP_PATH . '/Model/SB.php';
     </tr>
 
     <?php
-    /** creates a table bases on the students of the class */
+    /** creates a table bases on the students of the class
+     gives colors to tablerows of students who stand out with low presence*/
     $students = calculate();
     foreach($students as $student){
         if($student['lessons'] > 0) {

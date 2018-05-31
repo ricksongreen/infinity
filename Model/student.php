@@ -78,6 +78,8 @@ function registered($id){
     return $trueFalse;
 }
 
+/** retrieves the presence per lesson for the student which student_ID has been given in the call of the function
+ * Then retrieves the data pared with the lesson ID and the number of docent_ID after that */
 function presenceLesson($id){
     global $dbh;
     $stmt = $dbh->prepare("SELECT aanwezigheid, les_ID FROM aanwezigheid WHERE student_ID=:student_ID");

@@ -186,3 +186,25 @@ function makeLesson($data){
     );
     $stmt->execute($values);
 }
+
+function getAllLessons(){
+    global $dbh;
+    $stmt = $dbh->query("SELECT * FROM lessen ORDER BY naam, datum");
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $biggerArray = [];
+    foreach($data as $smallerData) {
+        $array = $smallerData;
+        $stmt = $dbh->prepare("SELECT naam FROM klas WHERE ID=:klas_ID");
+        $value = array ('klas_ID' => $smallerData['klas_ID']);
+        $stmt->execute($value);
+        $info = $stmt->fetch(PDO::FETCH_ASSOC);
+        $array['klasnaam'] = $info['naam'];
+        $stmt = $dbh->prepare("SELECT nummer FROM werknemer WHERE ID=:docent_ID");
+        $value = array ('docent_ID' => $smallerData['docent_ID']);
+        $stmt->execute($value);
+        $info = $stmt->fetch(PDO::FETCH_ASSOC);
+        $array['nummer'] = $info['nummer'];
+        $biggerArray[] = $array;
+    }
+    return $biggerArray;
+}

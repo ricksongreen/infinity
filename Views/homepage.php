@@ -31,7 +31,7 @@ $arrayLes = [];
     </form>
 </div>
 
-<!-- Places the lessons into a container which the name, teachernumber or classname, time and location -->
+<!-- Places the lessons into a container whith the name, teachernumber or classname, time and location -->
 <div id="container" class="container">
     <div class="day-column">
         <div class="day-header">Vandaag</div>
@@ -40,6 +40,8 @@ $arrayLes = [];
                 $i = 0;
                 if(!empty($lessen)){
                 foreach($lessen as $les){
+                    /** $there will store the retrieved information about wether the lesson has been registered for already
+                     * If that is the case, the lessons will be marked red or green which corresponds with the given presence*/
                     $there = registered($les['ID']);
                     if($there['aanwezigheid'] === '1'){
                         echo "<div class='event green' id='$les[ID]'>";

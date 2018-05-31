@@ -63,6 +63,7 @@
         <th>Verwijder</th>
     </tr>
     </thead>
+    <!-- Uses the information from the array and creates a table based on that information -->
     <?php foreach ($users as $user) { ?>
         <tr>
             <td><?php echo $user['gebruikersnaam'] ?></td>

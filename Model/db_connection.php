@@ -6,6 +6,8 @@
  * Time: 11:53
  */
 
+
+/** tries to make a database connection and stops when this is not possible */
 try {
     $dbh = new PDO('mysql:host=localhost;dbname=t08er1718_t08',
         'root',

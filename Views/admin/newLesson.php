@@ -30,6 +30,7 @@ require_once APP_PATH . '/Model/admin.php';
             <b>Eindtijd</b> <input type="time" name="endTime" required placeholder="Eindtijd"><br>
             <select name="class" size="1">
                 <?php
+                /** creates dropdown menu of classes */
                 $classes = getAllClasses();
                 foreach($classes as $class){
                     $ID = $class['ID'];
@@ -40,6 +41,7 @@ require_once APP_PATH . '/Model/admin.php';
             </select>
             <select name="teacher" size="1">
                 <?php
+                /** creates a dropdown menu of teachers */
                 $teachers = getAllTeachers();
                 foreach($teachers as $teacher){
                     $ID = $teacher['ID'];
@@ -52,6 +54,7 @@ require_once APP_PATH . '/Model/admin.php';
     </div>
 </form>
 <script>
+    //makes it easier to select date
     $(document).ready(function() {
         $("#datepicker").datepicker();
     });

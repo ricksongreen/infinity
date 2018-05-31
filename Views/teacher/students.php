@@ -11,6 +11,16 @@ require_once APP_PATH . '/Model/teacher.php';
 ?>
 <html>
 <head>
+    <style>
+        @media print {
+            * {
+                display: none;
+            }
+            #printableTable {
+                display: block;
+            }
+        }
+    </style>
 
 </head>
 <body>
@@ -28,7 +38,8 @@ require_once APP_PATH . '/Model/teacher.php';
     </select>
     <input type="submit" value="Zoeken">
 </form>
-
+<button class="Button Button--outline" onclick="printDiv()">Print</button>
+<div id="printableTable">
 <table class="customers">
     <tr>
         <th>
@@ -58,5 +69,13 @@ require_once APP_PATH . '/Model/teacher.php';
     }
     ?>
 </table>
+<iframe name="print_frame" width="0" height="0" frameborder="0" src="about:blank"></iframe>
+<script>
+    function printDiv() {
+        window.frames["print_frame"].document.body.innerHTML = document.getElementById("printableTable").innerHTML;
+        window.frames["print_frame"].window.focus();
+        window.frames["print_frame"].window.print();
+    }
+</script>
 </body>
 </html>

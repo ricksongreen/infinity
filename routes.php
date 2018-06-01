@@ -64,7 +64,7 @@ $allowedControllers = array(
 // if someone tries to access something else (s)he will be redirected to the error action of the pages controller
 if (!array_key_exists($controller, $allowedControllers)) {
     call('home', 'error');
-} else if($_SESSION['ingelogd'] !== true and $action !== 'loginhandler') {
+} else if(!isset($_SESSION['ingelogd']) and $action !== 'loginhandler') {
     call('home', 'loginform');
 }else if (!in_array($action, $allowedControllers[$controller])) {
     call('home', 'error');

@@ -26,6 +26,7 @@ function getScheduleStu(){
     $stmt->execute($values);
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
     /** gets the nummers of the teachers instead of the ID */
+    $dataArray = [];
     foreach($data as $smallerData){
         $stmt = $dbh->prepare("SELECT nummer FROM werknemer WHERE ID = :ID");
         $value = array (

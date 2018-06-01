@@ -96,7 +96,7 @@
 <div class="navbar teal borderYtoX">
     <ul>
     <?php
-    if($_SESSION["ingelogd"] == true){
+    if(isset($_SESSION["ingelogd"])){
         echo "<li><a href='index.php?controller=home&action=homepage'>Home</a></li>";
         if($_SESSION["rechten"] == 'admin' or $_SESSION["rechten"] == 'slbadmin'){
             echo "<li><a href='index.php?controller=admin&action=addForm'>Registratie</a></li>";

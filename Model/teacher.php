@@ -58,6 +58,7 @@ function getScheduleTea(){
     return $dataArray;
 }
 
+/** retrieves the lessons which have already been given */
 function getLessons(){
     $user = unserialize($_SESSION['user']);
     global $dbh;
@@ -77,6 +78,7 @@ function getLessons(){
     return $lessonsClass;
 }
 
+/** calculates the percentage of students which have been present at the lesson which this function has been called for */
 function getPresence($lesson_ID){
     global $dbh;
     $stmt = $dbh->prepare("SELECT * FROM aanwezigheid WHERE les_ID=:les_ID");

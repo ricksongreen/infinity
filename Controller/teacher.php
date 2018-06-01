@@ -11,6 +11,7 @@ function showClass(){
     require_once APP_PATH . '/Views/teacher/students.php';
 }
 
+/** shows the lessons with percentages */
 function showLessonsPer(){
     require_once APP_PATH . '/Views/teacher/lessons.php';
 }

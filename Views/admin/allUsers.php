@@ -29,15 +29,11 @@
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
-
         }
-
-
 
         input[type=text]:focus {
             width: 100%;
         }
-
     </style>
 </head>
 
@@ -45,7 +41,7 @@
 <h1>Gebruikers</h1>
 
 <form action="index.php?controller=admin&action=search" method="POST">
-    <input type="text" name="query" id="myInput" onkeyup="myFunction()" placeholder="Zoek..." title="Type in a name">
+    <input type="text" name="query" id="myInput" onkeyup="search()" placeholder="Zoek..." title="Type in a name">
 </form>
 
 
@@ -72,7 +68,8 @@
     <?php } ?>
 </table>
 <script>
-    function myFunction() {
+    //Filters the list of users and refreshes the lists instantly
+    function search() {
         var input, filter, table, tr, td, i;
         input = document.getElementById("myInput");
         filter = input.value.toUpperCase();

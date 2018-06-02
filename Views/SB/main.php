@@ -36,6 +36,7 @@ require_once APP_PATH . '/Model/SB.php';
             $percentage = round(($student['total'] / $student['lessons']) * 100);
             $percentageText = $percentage . "% van " . $student['lessons'] . " lessen";
         }else{
+            $percentage = 100;
             $percentageText = "-";
         }
         if($percentage < 40){

@@ -6,6 +6,7 @@
  * Time: 22:29
  */
 
+include_once APP_PATH . '/Model/student.php';
 
 /** registers the user and refreshes the page */
 function register(){

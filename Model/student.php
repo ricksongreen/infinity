@@ -6,6 +6,8 @@
  * Time: 11:41
  */
 
+include_once APP_PATH . '/Model/Classes/User.php';
+
 /** retrieves the schedule information of the student
  * @return array with that information */
 function getScheduleStu(){
@@ -45,6 +47,7 @@ function getScheduleStu(){
 function registerStudent(){
     $user = unserialize($_SESSION['user']);
     $start = new DateTime($_POST['startTime']);
+    $start->modify('-2 hours');
     $time = new DateTime(date("h:i:s"));
     $hours = $start->diff($time);
     $minutes = $hours->format("%H:%I:%S");

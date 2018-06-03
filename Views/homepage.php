@@ -25,7 +25,7 @@ $arrayLes = [];
 <div id="register" class="container" style="display:none">
     <h1>Aanmelden voor de les:</h1><br>
     <span id="lessonname"></span><br>
-    <form method="post" action="index.php?controller=home&action=register">
+    <form method="post" action="index.php?controller=student&action=register">
         <span id="hidden"></span>
         <input type="submit" value="Meld je aan">
     </form>
